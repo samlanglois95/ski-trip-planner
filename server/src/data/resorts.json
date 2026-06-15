@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Vail",
+    "region": "Colorado",
+    "passType": "Epic",
+    "lat": 39.6433,
+    "lng": -106.3781,
+    "skillLevels": ["intermediate", "advanced", "expert"],
+    "website": "https://www.vail.com",
+    "tickets": "https://www.vail.com/plan-your-trip/tickets.aspx"
+  },
+  {
+    "name": "Aspen Snowmass",
+    "region": "Colorado",
+    "passType": "Ikon",
+    "lat": 39.2084,
+    "lng": -106.9491,
+    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "website": "https://www.aspensnowmass.com",
+    "tickets": "https://www.aspensnowmass.com/plan-your-trip/lift-tickets"
+  },
+  {
+    "name": "Park City",
+    "region": "Utah",
+    "passType": "Epic",
+    "lat": 40.6461,
+    "lng": -111.4980,
+    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "website": "https://www.parkcitymountain.com",
+    "tickets": "https://www.parkcitymountain.com/plan-your-trip/lift-tickets.aspx"
+  },
+  {
+    "name": "Mammoth Mountain",
+    "region": "California",
+    "passType": "Ikon",
+    "lat": 37.6308,
+    "lng": -119.0326,
+    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "website": "https://www.mammothmountain.com",
+    "tickets": "https://www.mammothmountain.com/plan-your-trip/lift-tickets"
+  }
+]
