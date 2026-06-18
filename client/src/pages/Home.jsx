@@ -12,7 +12,7 @@ export default function Home() {
     setLoading(true)
     setError(null)
     try {
-      const res = await axios.post('http://localhost:3001/api/trip/generate', formData)
+      const res = await axios.post('http://localhost:4000/api/trip/generate', formData)
       navigate('/results', { state: { plan: res.data.data, inputs: formData } })
     } catch (err) {
       setError('Something went wrong generating your trip. Check that your backend is running.')

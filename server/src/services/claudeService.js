@@ -63,7 +63,8 @@ Return ONLY valid JSON in this exact structure, no extra text:
     "liftTickets": 300,
     "rentalCar": 200,
     "food": 150,
-    "total": 1650
+    "total": 1650,
+    "notes": "A single string with budget tips and caveats. Must be a plain string, never an object."
   },
   "packingTips": ["tip1", "tip2"],
   "bestTimeToBook": "Book flights 6-8 weeks out for best prices"
@@ -74,7 +75,7 @@ Return ONLY valid JSON in this exact structure, no extra text:
     'https://api.anthropic.com/v1/messages',
     {
       model: 'claude-sonnet-4-6',
-      max_tokens: 2000,
+      max_tokens: 4000,
       messages: [{ role: 'user', content: prompt }]
     },
     {
@@ -88,5 +89,11 @@ Return ONLY valid JSON in this exact structure, no extra text:
 
   const text = response.data.content[0].text
   const cleaned = text.replace(/```json|```/g, '').trim()
-  return JSON.parse(cleaned)
+
+  try {
+    return JSON.parse(cleaned)
+  } catch (err) {
+    console.error('Failed to parse Claude response as JSON:', cleaned)
+    throw new Error('Claude returned malformed JSON. Try again or reduce response complexity.')
+  }
 }
