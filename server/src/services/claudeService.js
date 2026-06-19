@@ -30,7 +30,8 @@ USER INPUTS:
 - Dates: ${startDate} to ${endDate}
 - Skill Level: ${skillLevel} (beginner/intermediate/advanced/expert)
 - Trip Type: ${tripType} (resort/backcountry/hybrid)
-- Preferred Region: ${preferredRegion}
+- Preferred Region(s): ${Array.isArray(preferredRegion) ? preferredRegion.join(', ') : preferredRegion}
+${preferredRegion.length > 1 ? `- Note: User selected multiple regions. Recommend the single best region based on their other criteria (budget, skill level, dates, pass type) and explain why. Do not try to split resorts across regions unless the user specifically asked for a multi-destination trip in the extras field.` : ''}
 - Pass Type: ${passType} (Ikon/Epic/none/flexible)
 - Flexibility: ${flexibility}
 

@@ -1,35 +1,5 @@
 import { useState } from 'react'
 
-const REGIONS = [
-  // North America
-  'Colorado',
-  'Utah',
-  'California / Lake Tahoe',
-  'Pacific Northwest (WA/OR)',
-  'Wyoming / Montana / Idaho',
-  'Vermont / New England',
-  'Canada - BC (Whistler / Revelstoke)',
-  'Canada - Alberta (Banff / Lake Louise)',
-  'Canada - Quebec (Tremblant)',
-  // Europe
-  'French Alps (Chamonix / Les 3 Vallées)',
-  'Swiss Alps (Zermatt / St. Moritz / Verbier)',
-  'Austrian Alps (Kitzbühel / Ischgl / Sölden)',
-  'Italian Dolomites',
-  // Asia
-  'Japan - Hokkaido (Niseko / Rusutsu / Furano)',
-  'Japan - Honshu (Hakuba / Zao)',
-  'South Korea',
-  'China',
-  // Southern Hemisphere
-  'Chile (Valle Nevado / Portillo)',
-  'Argentina (Las Leñas / Bariloche)',
-  'New Zealand (Queenstown / Wanaka)',
-  'Australia',
-  // Open ended
-  'Surprise me / Flexible'
-]
-
 const defaultForm = {
   budget: '',
   budgetType: 'total',
@@ -39,7 +9,7 @@ const defaultForm = {
   endDate: '',
   skillLevel: '',
   tripType: '',
-  preferredRegion: '',
+  preferredRegion: [],
   passType: '',
   flexibility: 'somewhat flexible',
   extras: ''
@@ -50,6 +20,18 @@ export default function TripForm({ onSubmit, loading }) {
 
   function handleChange(e) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  function handleRegionToggle(region) {
+    setForm(prev => {
+      const current = prev.preferredRegion
+      return {
+        ...prev,
+        preferredRegion: current.includes(region)
+          ? current.filter(r => r !== region)
+          : [...current, region]
+      }
+    })
   }
 
   function handleSubmit(e) {
@@ -202,23 +184,103 @@ export default function TripForm({ onSubmit, loading }) {
         <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-4">
           Location & Pass
         </h3>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className={labelClass}>Preferred Region</label>
-            <select name="preferredRegion" value={form.preferredRegion} onChange={handleChange} required className={inputClass}>
-              <option value="">Select region</option>
-              {REGIONS.map(r => <option key={r} value={r}>{r}</option>)}
-            </select>
-          </div>
-          <div>
-            <label className={labelClass}>Pass Type</label>
-            <select name="passType" value={form.passType} onChange={handleChange} className={inputClass}>
-              <option value="none">No pass / buy tickets</option>
-              <option value="Ikon">Ikon Pass</option>
-              <option value="Epic">Epic Pass</option>
-              <option value="flexible">No preference</option>
-            </select>
-          </div>
+
+        <div className="mb-4">
+          <label className={labelClass}>
+            Preferred Region(s)
+            <span className="text-slate-500 font-normal ml-2">— select one or more</span>
+          </label>
+
+          {/* Group regions by continent */}
+          {[
+            {
+              label: '🌎 North America',
+              regions: [
+                'Colorado',
+                'Utah',
+                'California / Lake Tahoe',
+                'Pacific Northwest (WA/OR)',
+                'Wyoming / Montana / Idaho',
+                'Vermont / New England',
+                'Canada - BC (Whistler / Revelstoke)',
+                'Canada - Alberta (Banff / Lake Louise)',
+                'Canada - Quebec (Tremblant)',
+              ]
+            },
+            {
+              label: '🌍 Europe',
+              regions: [
+                'French Alps (Chamonix / Les 3 Vallées)',
+                'Swiss Alps (Zermatt / St. Moritz / Verbier)',
+                'Austrian Alps (Kitzbühel / Ischgl / Sölden)',
+                'Italian Dolomites',
+              ]
+            },
+            {
+              label: '🌏 Asia',
+              regions: [
+                'Japan - Hokkaido (Niseko / Rusutsu / Furano)',
+                'Japan - Honshu (Hakuba / Zao)',
+                'South Korea',
+                'China',
+              ]
+            },
+            {
+              label: '🌏 Southern Hemisphere',
+              regions: [
+                'Chile (Valle Nevado / Portillo)',
+                'Argentina (Las Leñas / Bariloche)',
+                'New Zealand (Queenstown / Wanaka)',
+                'Australia',
+              ]
+            },
+            {
+              label: '✨ Open',
+              regions: ['Surprise me / Flexible']
+            }
+          ].map(group => (
+            <div key={group.label} className="mb-3">
+              <p className="text-xs text-slate-500 uppercase tracking-wider mb-2">{group.label}</p>
+              <div className="flex flex-wrap gap-2">
+                {group.regions.map(region => {
+                  const selected = form.preferredRegion.includes(region)
+                  return (
+                    <button
+                      key={region}
+                      type="button"
+                      onClick={() => handleRegionToggle(region)}
+                      className={`text-xs px-3 py-1.5 rounded-full border transition ${
+                        selected
+                          ? 'bg-blue-600 border-blue-500 text-white'
+                          : 'bg-slate-800 border-slate-600 text-slate-300 hover:border-slate-400'
+                      }`}
+                    >
+                      {region}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
+
+          {form.preferredRegion.length === 0 && (
+            <p className="text-xs text-amber-400 mt-2">Please select at least one region</p>
+          )}
+          {form.preferredRegion.length > 0 && (
+            <p className="text-xs text-slate-500 mt-2">
+              {form.preferredRegion.length} region{form.preferredRegion.length > 1 ? 's' : ''} selected
+            </p>
+          )}
+        </div>
+
+        <div>
+          <label className={labelClass}>Pass Type</label>
+          <select name="passType" value={form.passType} onChange={handleChange} className={inputClass}>
+            <option value="none">No pass / buy tickets</option>
+            <option value="Ikon">Ikon Pass</option>
+            <option value="Epic">Epic Pass</option>
+            <option value="flexible">No preference</option>
+          </select>
         </div>
       </div>
 
@@ -239,7 +301,7 @@ export default function TripForm({ onSubmit, loading }) {
 
       <button
         type="submit"
-        disabled={loading}
+        disabled={loading || form.preferredRegion.length === 0}
         className="w-full py-3.5 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-base"
       >
         {loading ? '🔍 Planning your trip...' : '🏔️ Plan My Trip'}
