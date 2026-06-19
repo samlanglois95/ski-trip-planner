@@ -9,6 +9,7 @@ import MapView from '../components/MapView'
 export default function Results() {
   const location = useLocation()
   const { plan, inputs } = location.state || {}
+  console.log('FULL PLAN:', JSON.stringify(plan?.flightSuggestions))
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
   const [saveError, setSaveError] = useState(null)
@@ -94,7 +95,7 @@ export default function Results() {
         {/* Map */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold text-white mb-4">Resort Locations</h2>
-          <MapView resorts={plan.topResorts} />
+          <MapView resorts={plan.topResorts} flightSuggestions={plan.flightSuggestions} />
         </div>
 
         {/* Resorts */}

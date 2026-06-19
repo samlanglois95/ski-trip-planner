@@ -8,6 +8,7 @@ const REGIONS = [
 const defaultForm = {
   budget: '',
   budgetType: 'total',
+  departureLocation: '',
   groupSize: '1',
   startDate: '',
   endDate: '',

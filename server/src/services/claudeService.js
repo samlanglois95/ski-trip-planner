@@ -17,6 +17,11 @@ export async function buildTripPlan(inputs) {
   const prompt = `
 You are an expert ski trip planner. Based on the following user inputs, generate a detailed ski trip plan.
 
+CRITICAL FORMATTING RULES:
+- departureAirport must be ONLY the 3-letter IATA code for the departure city, nothing else
+- nearestAirport must be ONLY the 3-letter IATA code for the destination airport, nothing else
+- Never add descriptions or extra text to airport code fields
+
 USER INPUTS:
 - Budget: $${totalBudget} total ($${perPersonBudget} per person) for ${groupSize} people
 - Departure Location: ${departureLocation} (use this for flight suggestions)
@@ -45,8 +50,10 @@ Return ONLY valid JSON in this exact structure, no extra text:
   ],
   "flightSuggestions": [
     {
-      "nearestAirport": "DEN",
-      "searchUrl": "https://www.google.com/flights?..."
+      "departureAirport": "BOS",
+      "nearestAirport": "SLC",
+      "nearestAirportFull": "Salt Lake City International Airport",
+      "searchUrl": "https://www.google.com/flights/..."
     }
   ],
   "lodgingSuggestions": [
