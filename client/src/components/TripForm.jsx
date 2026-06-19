@@ -1,8 +1,33 @@
 import { useState } from 'react'
 
 const REGIONS = [
-  'Colorado', 'Utah', 'California', 'Pacific Northwest',
-  'Vermont / New England', 'Alps (Europe)', 'Canada', 'Flexible'
+  // North America
+  'Colorado',
+  'Utah',
+  'California / Lake Tahoe',
+  'Pacific Northwest (WA/OR)',
+  'Wyoming / Montana / Idaho',
+  'Vermont / New England',
+  'Canada - BC (Whistler / Revelstoke)',
+  'Canada - Alberta (Banff / Lake Louise)',
+  'Canada - Quebec (Tremblant)',
+  // Europe
+  'French Alps (Chamonix / Les 3 Vallées)',
+  'Swiss Alps (Zermatt / St. Moritz / Verbier)',
+  'Austrian Alps (Kitzbühel / Ischgl / Sölden)',
+  'Italian Dolomites',
+  // Asia
+  'Japan - Hokkaido (Niseko / Rusutsu / Furano)',
+  'Japan - Honshu (Hakuba / Zao)',
+  'South Korea',
+  'China',
+  // Southern Hemisphere
+  'Chile (Valle Nevado / Portillo)',
+  'Argentina (Las Leñas / Bariloche)',
+  'New Zealand (Queenstown / Wanaka)',
+  'Australia',
+  // Open ended
+  'Surprise me / Flexible'
 ]
 
 const defaultForm = {

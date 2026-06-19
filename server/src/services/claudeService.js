@@ -18,10 +18,11 @@ export async function buildTripPlan(inputs) {
 You are an expert ski trip planner. Based on the following user inputs, generate a detailed ski trip plan.
 
 CRITICAL FORMATTING RULES:
-- departureAirport must be ONLY the 3-letter IATA code for the departure city, nothing else
-- nearestAirport must be ONLY the 3-letter IATA code for the destination airport, nothing else
-- Never add descriptions or extra text to airport code fields
+- departureAirport must be ONLY a 3-letter IATA code (e.g. "BOS"). No extra text.
+- nearestAirport must be ONLY a 3-letter IATA code (e.g. "SLC"). No extra text.
+- notes in budgetBreakdown must always be a plain string, never an object.
 - topResorts must contain EXACTLY 3 resort recommendations, no more, no less.
+- Return ONLY valid JSON, no extra text, no markdown fences.
 
 USER INPUTS:
 - Budget: $${totalBudget} total ($${perPersonBudget} per person) for ${groupSize} people
