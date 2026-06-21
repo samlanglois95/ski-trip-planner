@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../lib/api'
 
 export default function Trips() {
   const [trips, setTrips] = useState([])
@@ -15,7 +15,7 @@ export default function Trips() {
 
   async function fetchTrips() {
     try {
-      const res = await axios.get('http://localhost:4000/api/trip/all')
+      const res = await api.get('/api/trip/all')
       setTrips(res.data.data)
     } catch (err) {
       setError('Failed to load trips.')
@@ -30,7 +30,7 @@ export default function Trips() {
     if (!confirm('Delete this trip?')) return
     setDeleting(id)
     try {
-      await axios.delete(`http://localhost:4000/api/trip/${id}`)
+      await api.delete(`/api/trip/${id}`)
       setTrips(prev => prev.filter(t => t.id !== id))
     } catch (err) {
       console.error(err)
@@ -78,7 +78,11 @@ export default function Trips() {
 
         {!loading && trips.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-4xl mb-4">⛷️</p>
+            <div className="mb-4 text-slate-600">
+              <svg className="w-12 h-12 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2 21L12 3l10 18H2z"/>
+              </svg>
+            </div>
             <p className="text-slate-300 font-medium mb-2">No saved trips yet</p>
             <p className="text-slate-500 text-sm mb-6">Generate a trip and click "Save Trip" to see it here</p>
             <Link to="/" className="text-blue-400 hover:text-blue-300 font-medium text-sm">

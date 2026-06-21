@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import TripForm from '../components/TripForm'
-import axios from 'axios'
+import api from '../lib/api'
 import heroBg from '../assets/front-page.jpeg'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
     setLoading(true)
     setError(null)
     try {
-      const res = await axios.post('http://localhost:4000/api/trip/generate', formData)
+      const res = await api.post('/api/trip/generate', formData)
       navigate('/results', { state: { plan: res.data.data, inputs: formData } })
     } catch (err) {
       setError('Something went wrong generating your trip. Check that your backend is running.')
@@ -28,10 +28,31 @@ export default function Home() {
 
       {/* Loading overlay */}
       {loading && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-900/90 backdrop-blur-sm">
-          <div className="text-6xl mb-6 animate-bounce">⛷️</div>
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-linear-to-b from-blue-950/95 via-slate-900/95 to-slate-900/95 backdrop-blur-md overflow-hidden">
+          {/* Snowflakes */}
+          {[
+            { left: '5%',  size: '5px',  duration: '4s',   delay: '0s' },
+            { left: '15%', size: '3px',  duration: '3s',   delay: '0.5s' },
+            { left: '28%', size: '6px',  duration: '5s',   delay: '1s' },
+            { left: '42%', size: '4px',  duration: '3.5s', delay: '0.2s' },
+            { left: '58%', size: '5px',  duration: '4.5s', delay: '1.5s' },
+            { left: '70%', size: '3px',  duration: '3.2s', delay: '0.8s' },
+            { left: '83%', size: '5px',  duration: '4s',   delay: '0.3s' },
+            { left: '93%', size: '4px',  duration: '5.2s', delay: '1.2s' },
+          ].map((flake, i) => (
+            <span
+              key={i}
+              className="snowflake"
+              style={{ left: flake.left, top: '-20px', width: flake.size, height: flake.size, animationDuration: flake.duration, animationDelay: flake.delay }}
+            />
+          ))}
+          <div className="mb-6 animate-bounce text-blue-400">
+            <svg className="w-16 h-16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2 21L12 3l10 18H2z"/>
+            </svg>
+          </div>
           <h2 className="text-2xl font-bold text-white mb-2">Planning your trip...</h2>
-          <p className="text-slate-400 text-sm mb-8">Claude is finding the best resorts, flights, and lodging for you</p>
+          <p className="text-slate-400 text-sm mb-8">Scanning resorts, flights, and lodging just for you</p>
           <div className="flex gap-1.5">
             {[0, 1, 2, 3, 4].map(i => (
               <div
@@ -46,7 +67,7 @@ export default function Home() {
 
       {/* Hero section with background image */}
       <div
-        className="relative min-h-[420px] flex items-center justify-center overflow-hidden"
+        className="relative min-h-105 flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
@@ -54,12 +75,12 @@ export default function Home() {
         }}
       >
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/50 to-slate-900" />
+        <div className="absolute inset-0 bg-linear-to-b from-slate-900/60 via-slate-900/50 to-slate-900" />
 
         {/* Hero content */}
         <div className="relative z-10 max-w-2xl mx-auto px-6 pt-16 pb-24 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm text-blue-200 mb-6">
-            <span>✨</span> AI-powered ski trip planning
+            AI-powered ski trip planning
           </div>
           <h1 className="text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
             Your perfect ski trip,<br />

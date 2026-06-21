@@ -3,8 +3,7 @@ import { saveTrip, getAllTrips, getTripById, deleteTrip } from '../services/trip
 
 export async function generateTripPlan(req, res) {
   try {
-    const userInputs = req.body
-    const tripPlan = await buildTripPlan(userInputs)
+    const tripPlan = await buildTripPlan(req.body)
     res.json({ success: true, data: tripPlan })
   } catch (error) {
     console.error('Trip generation error:', error)
@@ -15,7 +14,7 @@ export async function generateTripPlan(req, res) {
 export async function saveTripPlan(req, res) {
   try {
     const { inputs, plan, tripName } = req.body
-    const saved = await saveTrip(inputs, plan, tripName)
+    const saved = await saveTrip(inputs, plan, tripName, req.user.id)
     res.json({ success: true, data: saved })
   } catch (error) {
     console.error('Save trip error:', error)
@@ -25,7 +24,7 @@ export async function saveTripPlan(req, res) {
 
 export async function listTrips(req, res) {
   try {
-    const trips = await getAllTrips()
+    const trips = await getAllTrips(req.user.id)
     res.json({ success: true, data: trips })
   } catch (error) {
     console.error('List trips error:', error)
@@ -35,7 +34,7 @@ export async function listTrips(req, res) {
 
 export async function getTrip(req, res) {
   try {
-    const trip = await getTripById(req.params.id)
+    const trip = await getTripById(req.params.id, req.user.id)
     res.json({ success: true, data: trip })
   } catch (error) {
     console.error('Get trip error:', error)
@@ -45,7 +44,7 @@ export async function getTrip(req, res) {
 
 export async function removeTrip(req, res) {
   try {
-    await deleteTrip(req.params.id)
+    await deleteTrip(req.params.id, req.user.id)
     res.json({ success: true })
   } catch (error) {
     console.error('Delete trip error:', error)

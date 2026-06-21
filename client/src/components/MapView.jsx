@@ -65,8 +65,8 @@ function addMarker(map, coords, emoji, color) {
     background: ${color}; border: 3px solid white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     display: flex; align-items: center; justify-content: center;
-    font-size: 14px; cursor: default;
-    position: relative;
+    font-size: 11px; font-weight: 700; color: white; font-family: system-ui;
+    cursor: default; position: relative;
   `
   el.innerHTML = emoji
   new mapboxgl.Marker(el).setLngLat([coords.lng, coords.lat]).addTo(map)
@@ -132,10 +132,10 @@ export default function MapView({ resorts, flightSuggestions }) {
         })
 
         // Departure airport marker
-        addMarker(map.current, departureCoords, '🏠', '#f59e0b')
+        addMarker(map.current, departureCoords, 'H', '#f59e0b')
 
         // Destination airport marker
-        addMarker(map.current, destinationCoords, '✈️', '#f59e0b')
+        addMarker(map.current, destinationCoords, 'A', '#f59e0b')
       }
 
       // Resort markers
@@ -198,11 +198,11 @@ export default function MapView({ resorts, flightSuggestions }) {
           Other
         </span>
         <span className="flex items-center gap-1.5">
-          <span>🏠</span>
+          <span className="w-4 h-4 rounded-full bg-amber-500 inline-flex items-center justify-center text-[8px] font-bold text-white">H</span>
           You
         </span>
         <span className="flex items-center gap-1.5">
-          <span>✈️</span>
+          <span className="w-4 h-4 rounded-full bg-amber-500 inline-flex items-center justify-center text-[8px] font-bold text-white">A</span>
           Fly into
         </span>
       </div>

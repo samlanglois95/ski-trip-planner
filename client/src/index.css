@@ -5,6 +5,31 @@
   50% { transform: translateY(-8px); opacity: 1; }
 }
 
+@keyframes snowfall {
+  0%   { transform: translateY(-20px) translateX(0px); opacity: 0; }
+  10%  { opacity: 0.8; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(100vh) translateX(25px); opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.snowflake {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  animation: snowfall linear infinite;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease both;
+}
+
 .mapboxgl-marker {
   position: absolute !important;
   top: 0 !important;

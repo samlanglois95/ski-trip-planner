@@ -1,10 +1,31 @@
 import { useLocation, Link } from 'react-router-dom'
 import { useState } from 'react'
-import axios from 'axios'
+import api from '../lib/api'
+import { useAuth } from '../context/AuthContext'
 import ResortCard from '../components/ResortCard'
 import BudgetBreakdown from '../components/BudgetBreakdown'
 import LinksList from '../components/LinksList'
 import MapView from '../components/MapView'
+
+function SectionCard({ children, delay = 0, className = '' }) {
+  return (
+    <div
+      className={`bg-slate-800/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 fade-in-up ${className}`}
+      style={{ animationDelay: `${delay}s` }}
+    >
+      {children}
+    </div>
+  )
+}
+
+function SectionHeading({ children }) {
+  return (
+    <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2.5">
+      <span className="w-1.5 h-5 rounded-full bg-blue-500 shrink-0" />
+      {children}
+    </h2>
+  )
+}
 
 export default function Results() {
   const location = useLocation()
@@ -12,17 +33,14 @@ export default function Results() {
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
   const [saveError, setSaveError] = useState(null)
+  const { user } = useAuth()
 
   async function handleSave() {
     setSaving(true)
     setSaveError(null)
     try {
       const tripName = `${inputs?.preferredRegion?.join(', ') || 'Trip'} — ${inputs?.startDate || ''}`
-      await axios.post('http://localhost:4000/api/trip/save', {
-        inputs,
-        plan,
-        tripName
-      })
+      await api.post('/api/trip/save', { inputs, plan, tripName })
       setSaved(true)
     } catch (err) {
       setSaveError('Failed to save trip. Try again.')
@@ -47,7 +65,7 @@ export default function Results() {
     <div className="min-h-screen bg-slate-900">
 
       {/* Hero banner */}
-      <div className="relative bg-gradient-to-r from-blue-900/80 via-slate-800 to-slate-900 border-b border-slate-700/50 overflow-hidden">
+      <div className="relative bg-linear-to-r from-blue-900/80 via-slate-800 to-slate-900 border-b border-slate-700/50 overflow-hidden">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -61,7 +79,7 @@ export default function Results() {
                 ← New search
               </Link>
               <h1 className="text-3xl font-bold text-white mb-1">
-                Your Trip Plan 🏔️
+                Your Trip Plan
               </h1>
               <p className="text-slate-300 text-sm">
                 {plan.topResorts?.length} resorts recommended
@@ -76,13 +94,20 @@ export default function Results() {
                 <span className="text-sm text-green-400 font-medium flex items-center gap-1.5">
                   ✓ Saved to trip log
                 </span>
+              ) : !user ? (
+                <Link
+                  to="/login"
+                  className="text-sm text-blue-400 hover:text-blue-300 font-medium transition"
+                >
+                  Sign in to save →
+                </Link>
               ) : (
                 <button
                   onClick={handleSave}
                   disabled={saving}
                   className="text-sm font-medium px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white transition"
                 >
-                  {saving ? 'Saving...' : '💾 Save Trip'}
+                  {saving ? 'Saving...' : 'Save Trip'}
                 </button>
               )}
               <Link
@@ -96,58 +121,66 @@ export default function Results() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 py-10">
+      <div className="max-w-5xl mx-auto px-6 py-10 space-y-6">
 
         {/* Warning banner */}
         {plan.importantWarning && (
-          <div className="mb-6 p-4 bg-amber-900/30 border border-amber-700/40 rounded-xl text-amber-200 text-sm leading-relaxed">
+          <div className="p-4 bg-amber-900/30 border border-amber-700/40 rounded-xl text-amber-200 text-sm leading-relaxed fade-in-up">
             {plan.importantWarning}
           </div>
         )}
 
         {/* Summary */}
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold text-white mb-3">Trip Summary</h2>
+        <SectionCard delay={0.05}>
+          <SectionHeading>Trip Summary</SectionHeading>
           <p className="text-slate-300 leading-relaxed">{plan.summary}</p>
-        </div>
+        </SectionCard>
 
         {/* Map */}
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold text-white mb-4">Resort Locations</h2>
-          <MapView resorts={plan.topResorts} flightSuggestions={plan.flightSuggestions} />
-        </div>
+        <SectionCard delay={0.1} className="p-0! overflow-hidden">
+          <div className="px-6 pt-6 pb-4">
+            <SectionHeading>Resort Locations</SectionHeading>
+          </div>
+          <div className="px-6 pb-6">
+            <MapView resorts={plan.topResorts} flightSuggestions={plan.flightSuggestions} />
+          </div>
+        </SectionCard>
 
         {/* Resorts */}
-        <div className="mb-8">
-          <h2 className="text-lg font-semibold text-white mb-4">Recommended Resorts</h2>
+        <SectionCard delay={0.15}>
+          <SectionHeading>Recommended Resorts</SectionHeading>
           <div className="grid md:grid-cols-3 gap-4">
             {plan.topResorts?.map((resort, i) => (
-              <ResortCard key={i} resort={resort} />
+              <ResortCard key={i} resort={resort} rank={i + 1} />
             ))}
           </div>
-        </div>
+        </SectionCard>
 
-        {/* Two column: budget + links */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        {/* Budget + Links */}
+        <div className="grid md:grid-cols-2 gap-6 fade-in-up" style={{ animationDelay: '0.2s' }}>
           <BudgetBreakdown budget={plan.budgetBreakdown} />
-          <div className="space-y-6">
-            <LinksList
-              title="Flights"
-              items={plan.flightSuggestions}
-              urlKey="searchUrl"
-              labelKey="nearestAirport"
-            />
-            <LinksList
-              title="Rental Car"
-              items={plan.rentalCarUrl ? [{ searchUrl: plan.rentalCarUrl, label: 'Search rental cars' }] : []}
-              urlKey="searchUrl"
-              labelKey="label"
-            />
+          <div className="space-y-4">
+            <SectionCard delay={0.22}>
+              <LinksList
+                title="Flights"
+                items={plan.flightSuggestions}
+                urlKey="searchUrl"
+                labelKey="nearestAirport"
+              />
+            </SectionCard>
+            <SectionCard delay={0.24}>
+              <LinksList
+                title="Rental Car"
+                items={plan.rentalCarUrl ? [{ searchUrl: plan.rentalCarUrl, label: 'Search rental cars' }] : []}
+                urlKey="searchUrl"
+                labelKey="label"
+              />
+            </SectionCard>
           </div>
         </div>
 
         {/* Lodging */}
-        <div className="mb-8">
+        <SectionCard delay={0.25}>
           <LinksList
             title="Lodging Options"
             items={plan.lodgingSuggestions}
@@ -155,33 +188,35 @@ export default function Results() {
             labelKey="type"
             descKey="description"
           />
-        </div>
+        </SectionCard>
 
-        {/* Best time to book */}
+        {/* Booking Strategy */}
         {plan.bestTimeToBook && (
-          <div className="mb-8 bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
-            <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3">
+          <SectionCard delay={0.3}>
+            <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-4 rounded-full bg-blue-500 shrink-0" />
               Booking Strategy
             </h3>
             <p className="text-sm text-slate-300 leading-relaxed">{plan.bestTimeToBook}</p>
-          </div>
+          </SectionCard>
         )}
 
-        {/* Packing tips */}
+        {/* Packing Tips */}
         {plan.packingTips && (
-          <div className="mb-8 bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
-            <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3">
+          <SectionCard delay={0.35}>
+            <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-4 rounded-full bg-blue-500 shrink-0" />
               Packing Tips
             </h3>
             <ul className="space-y-2">
               {plan.packingTips.map((tip, i) => (
                 <li key={i} className="text-sm text-slate-300 flex gap-2">
-                  <span className="text-blue-400">•</span>
+                  <span className="text-blue-400 shrink-0">•</span>
                   <span>{tip}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </SectionCard>
         )}
 
       </div>
