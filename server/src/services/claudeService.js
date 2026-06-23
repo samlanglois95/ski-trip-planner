@@ -145,11 +145,11 @@ Return ONLY valid JSON in this exact structure, no extra text:
       'https://api.anthropic.com/v1/messages',
       {
         model: 'claude-sonnet-4-6',
-        max_tokens: 4000,
+        max_tokens: 8000,
         messages: [{ role: 'user', content: prompt }]
       },
       {
-        timeout: 60000,
+        timeout: 150000,
         headers: {
           'x-api-key': process.env.ANTHROPIC_API_KEY,
           'anthropic-version': '2023-06-01',
