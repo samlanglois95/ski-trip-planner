@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4000
 app.use(cors({
   origin: ['http://localhost:5173', process.env.FRONTEND_URL].filter(Boolean)
 }))
-app.use(express.json())
+app.use(express.json({ limit: '10kb' }))
 app.use(globalLimiter)
 
 // Routes

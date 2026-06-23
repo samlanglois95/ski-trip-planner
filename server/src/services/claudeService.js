@@ -26,6 +26,7 @@ CRITICAL FORMATTING RULES:
 - Each itinerary day must have a "day" number, "title", "description", and "activities" array of 3-5 specific actionable items.
 - itinerary activities should be specific to the recommended resorts and region, not generic.
 - Return ONLY valid JSON, no extra text, no markdown fences.
+- itinerary must have a MAXIMUM of 14 day entries regardless of trip length. For longer trips, group multiple days together (e.g. "Days 3-5: Powder Days at Snowbird").
 
 USER INPUTS:
 - Budget: $${totalBudget} total ($${perPersonBudget} per person) for ${groupSize} people
