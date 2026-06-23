@@ -10,20 +10,19 @@ export default function Trips() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    async function fetchTrips() {
+      try {
+        const res = await api.get('/api/trip/all')
+        setTrips(res.data.data)
+      } catch (err) {
+        setError('Failed to load trips.')
+        console.error(err)
+      } finally {
+        setLoading(false)
+      }
+    }
     fetchTrips()
   }, [])
-
-  async function fetchTrips() {
-    try {
-      const res = await api.get('/api/trip/all')
-      setTrips(res.data.data)
-    } catch (err) {
-      setError('Failed to load trips.')
-      console.error(err)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   async function handleDelete(id, e) {
     e.stopPropagation()
