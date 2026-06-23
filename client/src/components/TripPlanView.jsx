@@ -122,14 +122,31 @@ export default function TripPlanView({ plan }) {
       {plan.foodAndDrink?.length > 0 && (
         <SectionCard delay={0.2}>
           <SectionHeading>Food & Nightlife</SectionHeading>
-          <ul className="space-y-2.5">
-            {plan.foodAndDrink.map((item, i) => (
-              <li key={i} className="text-sm text-slate-300 flex gap-2.5 leading-relaxed">
-                <span className="text-amber-400 shrink-0">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {plan.foodAndDrink.map((item, i) => {
+              const obj = item && typeof item === 'object'
+              const name = obj ? item.name : item
+              const vibe = obj ? item.vibe : null
+              const why = obj ? item.why : null
+              const url = obj ? item.mapsUrl : null
+              return (
+                <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3.5 hover:border-slate-600 transition-colors">
+                  {url ? (
+                    <a href={url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-white hover:text-amber-300 transition inline-flex items-center gap-1">
+                      {name} <span className="text-amber-400 text-xs">↗</span>
+                    </a>
+                  ) : (
+                    <span className="text-sm font-semibold text-white">{name}</span>
+                  )}
+                  {vibe && (
+                    <div className="text-[10px] uppercase tracking-wide text-amber-300/80 mt-0.5">{vibe}</div>
+                  )}
+                  {why && <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">{why}</p>}
+                </div>
+              )
+            })}
+          </div>
+          <p className="text-xs text-slate-500 mt-3">Tap a spot to open it in Google Maps — live ratings, hours & directions.</p>
         </SectionCard>
       )}
 

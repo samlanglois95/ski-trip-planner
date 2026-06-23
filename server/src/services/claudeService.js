@@ -67,7 +67,7 @@ CRITICAL FORMATTING RULES:
 - passRecommendation: if the user's pass type is "none" or "flexible" AND the recommended resorts are all (or mostly) covered by a single pass (Ikon or Epic), recommend that pass — set "pass" to "Ikon" or "Epic", give the approximate current season-pass cost in USD as "estimatedPassCost", and set "worthIt" true if the pass beats buying day lift tickets for this trip. If no single pass clearly helps, set "pass" to "none".
 - gettingThere: 3-6 concrete steps getting from the user's departure location to the resort area — flights, then airport transfers (buses/trains/shuttles) with approximate cost and travel time. Be specific to the destination.
 - essentials: 6-10 practical "know before you go" items SPECIFIC to the destination country — passport/visa rules for a US traveler, money & ATMs, SIM/eSIM/wifi, power plug type, key local etiquette (e.g. onsen rules in Japan), and any transport passes worth buying.
-- foodAndDrink: 4-8 specific recommended spots near the recommended resorts (restaurants, izakaya/local eats, bars, après-ski) — each with a short why. Use real, well-known venues where possible.
+- foodAndDrink: 4-8 of the genuinely best and most iconic eating/drinking spots near the recommended resorts — the legendary bars, must-do izakaya, standout après-ski. Each is an object with "name" (the REAL venue name, include the town), "vibe" (e.g. "lively après bar", "hidden cocktail spot", "late-night izakaya"), and "why" (one enticing line). Favor real, well-known places known for a great time.
 - snowReport: for EACH recommended resort, give its typical AVERAGE ANNUAL snowfall as a number in centimeters (avgAnnualSnowfallCm), a readable label (avgAnnualSnowfallLabel, e.g. "14 m / 550 in"), and a one-line "note" about the snow during the trip's month — accurate but enticing, based on the resort's real reputation.
 
 USER INPUTS:
@@ -161,8 +161,8 @@ Return ONLY valid JSON in this exact structure, no extra text:
     "Local etiquette to know (e.g. onsen rules in Japan)"
   ],
   "foodAndDrink": [
-    "A specific restaurant/izakaya near the resort — one-line why",
-    "A bar or après-ski spot — one-line why"
+    { "name": "Bar Gyu+ (Niseko)", "vibe": "hidden cocktail bar", "why": "Iconic speakeasy you enter through a vintage fridge door." },
+    { "name": "Bang Bang (Hirafu)", "vibe": "lively izakaya", "why": "Packed local favorite — go early and get the yakitori." }
   ],
   "snowReport": [
     {
@@ -273,6 +273,18 @@ Return ONLY valid JSON in this exact structure, no extra text:
         } else {
           l.searchUrl = `https://www.booking.com/searchresults.html?ss=${loc}&checkin=${startDate}&checkout=${endDate}&group_adults=${groupCount}`
         }
+      }
+    }
+  }
+
+  // Link each food/nightlife pick to its real Google Maps listing (live ratings,
+  // hours, directions) so the recommendations are verifiable, not just claims.
+  const foodLoc = plan.topResorts?.[0]?.region || plan.topResorts?.[0]?.name ||
+    (Array.isArray(preferredRegion) ? preferredRegion[0] : preferredRegion) || ''
+  if (Array.isArray(plan.foodAndDrink)) {
+    for (const f of plan.foodAndDrink) {
+      if (f && typeof f === 'object' && f.name) {
+        f.mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${f.name} ${foodLoc}`)}`
       }
     }
   }
