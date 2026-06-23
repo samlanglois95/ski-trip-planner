@@ -1,25 +1,57 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import TripForm from '../components/TripForm'
 import api from '../lib/api'
 import heroBg from '../assets/front-page.jpeg'
 
+const WAKEUP_MESSAGE = "Waking up the server — the first request after it's been idle can take up to a minute…"
+
 export default function Home() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [statusMsg, setStatusMsg] = useState(null)
   const navigate = useNavigate()
+
+  // The backend (Render free tier) spins down when idle. Ping it on mount so it
+  // starts waking up while the user fills out the form.
+  useEffect(() => {
+    api.get('/health').catch(() => {})
+  }, [])
 
   async function handleSubmit(formData) {
     setLoading(true)
     setError(null)
+    setStatusMsg(null)
+
+    // A cold start tends to be slow rather than failing outright — reassure the
+    // user (without aborting) if it's taking a while.
+    const slowTimer = setTimeout(() => setStatusMsg(WAKEUP_MESSAGE), 8000)
+    const maxAttempts = 5
+
     try {
-      const res = await api.post('/api/trip/generate', formData)
-      navigate('/results', { state: { plan: res.data.data, inputs: formData } })
-    } catch (err) {
-      setError('Something went wrong generating your trip. Check that your backend is running.')
-      console.error(err)
+      for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        try {
+          const res = await api.post('/api/trip/generate', formData)
+          navigate('/results', { state: { plan: res.data.data, inputs: formData, autosave: true } })
+          return
+        } catch (err) {
+          // No response or a gateway error usually means the backend is still
+          // booting — show the wake-up message and retry a few times.
+          const stillWaking = !err.response || [502, 503, 504].includes(err.response.status)
+          if (stillWaking && attempt < maxAttempts) {
+            setStatusMsg(WAKEUP_MESSAGE)
+            await new Promise(r => setTimeout(r, 5000))
+            continue
+          }
+          setError(err.response?.data?.error || 'Something went wrong generating your trip. Please try again.')
+          console.error(err)
+          return
+        }
+      }
     } finally {
+      clearTimeout(slowTimer)
       setLoading(false)
+      setStatusMsg(null)
     }
   }
 
@@ -52,7 +84,7 @@ export default function Home() {
             </svg>
           </div>
           <h2 className="text-2xl font-bold text-white mb-2">Planning your trip...</h2>
-          <p className="text-slate-400 text-sm mb-8">Scanning resorts, flights, and lodging just for you</p>
+          <p className="text-slate-400 text-sm mb-8">{statusMsg || 'Scanning resorts, flights, and lodging just for you'}</p>
           <div className="flex gap-1.5">
             {[0, 1, 2, 3, 4].map(i => (
               <div

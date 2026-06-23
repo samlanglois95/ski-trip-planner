@@ -15,7 +15,7 @@ export async function generateTripPlan(req, res) {
     res.json({ success: true, data: tripPlan })
   } catch (error) {
     console.error('Trip generation error:', error)
-    res.status(500).json({ success: false, error: error.message })
+    res.status(error.statusCode || 500).json({ success: false, error: error.message })
   }
 }
 

@@ -1,5 +1,5 @@
 import { useLocation, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import api from '../lib/api'
 import { useAuth } from '../context/AuthContext'
 import TripPlanView from '../components/TripPlanView'
@@ -7,26 +7,38 @@ import ShareTripModal from '../components/ShareTripModal'
 
 export default function Results() {
   const location = useLocation()
-  const { plan, inputs } = location.state || {}
+  const { plan, inputs, autosave } = location.state || {}
   const [saving, setSaving] = useState(false)
-  const [saved, setSaved] = useState(false)
+  const [saved, setSaved] = useState(!!location.state?.savedTripId)
   const [saveError, setSaveError] = useState(null)
-  const [savedTripId, setSavedTripId] = useState(null)
+  const [savedTripId, setSavedTripId] = useState(location.state?.savedTripId || null)
   const [sharing, setSharing] = useState(false)
   const [shareUrl, setShareUrl] = useState(null)
   const [shareError, setShareError] = useState(null)
   const { user } = useAuth()
+  const savePromise = useRef(null)
+  const autoSaveStarted = useRef(false)
 
   const tripName = `${inputs?.preferredRegion?.join(', ') || 'Trip'}${inputs?.startDate ? ` — ${inputs.startDate}` : ''}`
 
-  // Save the trip once; reused by both Save and Share so we never duplicate rows.
+  // Save the trip at most once; concurrent callers (auto-save + Share) share the
+  // same in-flight request so we never write duplicate rows.
   async function ensureSaved() {
     if (savedTripId) return savedTripId
-    const res = await api.post('/api/trip/save', { inputs, plan, tripName })
-    const id = res.data.data.id
-    setSavedTripId(id)
-    setSaved(true)
-    return id
+    if (savePromise.current) return savePromise.current
+    savePromise.current = (async () => {
+      const res = await api.post('/api/trip/save', { inputs, plan, tripName })
+      const id = res.data.data.id
+      setSavedTripId(id)
+      setSaved(true)
+      return id
+    })()
+    try {
+      return await savePromise.current
+    } catch (err) {
+      savePromise.current = null // let it be retried
+      throw err
+    }
   }
 
   async function handleSave() {
@@ -57,6 +69,17 @@ export default function Results() {
       setSharing(false)
     }
   }
+
+  // Auto-save a freshly generated trip for signed-in users, so it lands in My
+  // Trips and can be shared later. Runs once; trips opened from history already
+  // have an id (savedTripId) and are skipped.
+  useEffect(() => {
+    if (autosave && user && plan && !savedTripId && !autoSaveStarted.current) {
+      autoSaveStarted.current = true
+      handleSave()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user])
 
   if (!plan) {
     return (

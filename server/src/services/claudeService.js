@@ -1,4 +1,12 @@
 import axios from 'axios'
+import { readFileSync } from 'fs'
+
+// Curated resort database with verified coordinates, airports, and URLs.
+// Loaded once at startup and injected into the prompt so the model recommends
+// real resorts with real data instead of hallucinating coords and dead links.
+const RESORTS = JSON.parse(
+  readFileSync(new URL('../data/resorts.json', import.meta.url), 'utf-8')
+)
 
 export async function buildTripPlan(inputs) {
   const {
@@ -28,6 +36,17 @@ export async function buildTripPlan(inputs) {
     ? `${tripDays} day${tripDays === 1 ? '' : 's'} / ${nights} night${nights === 1 ? '' : 's'}`
     : 'unspecified length'
 
+  // Filter the verified resort DB by the user's pass so the model picks from
+  // real resorts (and copies their real coords / airport / URLs).
+  const passCandidates = RESORTS.filter(r => {
+    if (passType === 'Ikon') return r.passType === 'Ikon' || r.passType === 'none'
+    if (passType === 'Epic') return r.passType === 'Epic' || r.passType === 'none'
+    return true // none / flexible → consider all
+  })
+  const resortReference = passCandidates
+    .map(r => `${r.name} | ${r.region}, ${r.country} | ${r.passType} pass | ${r.lat},${r.lng} | airport ${r.nearestAirport} | site ${r.website} | tickets ${r.tickets}`)
+    .join('\n')
+
   const prompt = `
 You are an expert ski trip planner. Based on the following user inputs, generate a detailed ski trip plan.
 
@@ -42,6 +61,7 @@ CRITICAL FORMATTING RULES:
 - Each itinerary day must also include a "type" field — one of "travel", "ski", "rest", "explore", "departure" — used for visual styling. Day 1 is usually "travel" and the final day "departure".
 - Return ONLY valid JSON, no extra text, no markdown fences.
 - itinerary must have a MAXIMUM of 14 day entries regardless of trip length. For longer trips, group multiple days together (e.g. "Days 3-5: Powder Days at Snowbird").
+- PREFER resorts from the VERIFIED RESORT DATABASE below that match the user's region(s) and criteria. When you use one, copy its exact name, its lat/lng into mapboxCoords, its site into websiteUrl, its tickets URL into bookingUrl, and its airport as the nearestAirport. Only invent a resort if none in the list fit the request.
 
 USER INPUTS:
 - Budget: $${totalBudget} total ($${perPersonBudget} per person) for ${groupSize} people
@@ -54,6 +74,9 @@ ${preferredRegion.length > 1 ? `- Note: User selected multiple regions. Recommen
 - Pass Type: ${passType} (Ikon/Epic/none/flexible)
 - Flexibility: ${flexibility}
 - Additional preferences / extras: ${extras || 'none specified'}
+
+VERIFIED RESORT DATABASE (real resorts with verified coordinates, airports, and URLs — prefer these):
+${resortReference}
 
 Return ONLY valid JSON in this exact structure, no extra text:
 {
@@ -116,29 +139,53 @@ Return ONLY valid JSON in this exact structure, no extra text:
 }
   `
 
-  const response = await axios.post(
-    'https://api.anthropic.com/v1/messages',
-    {
-      model: 'claude-sonnet-4-6',
-      max_tokens: 4000,
-      messages: [{ role: 'user', content: prompt }]
-    },
-    {
-      headers: {
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json'
+  let response
+  try {
+    response = await axios.post(
+      'https://api.anthropic.com/v1/messages',
+      {
+        model: 'claude-sonnet-4-6',
+        max_tokens: 8000,
+        messages: [{ role: 'user', content: prompt }]
+      },
+      {
+        timeout: 150000,
+        headers: {
+          'x-api-key': process.env.ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+          'content-type': 'application/json'
+        }
       }
-    }
-  )
+    )
+  } catch (err) {
+    const status = err.response?.status
+    console.error('Claude API error:', status, err.response?.data || err.message)
+    const busy = status === 429 || status === 529
+    const e = new Error(
+      busy
+        ? 'The trip planner is busy right now — give it a moment and try again.'
+        : 'Could not reach the trip planner. Please try again in a moment.'
+    )
+    e.statusCode = busy ? 503 : 502
+    throw e
+  }
 
-  const text = response.data.content[0].text
-  const cleaned = text.replace(/```json|```/g, '').trim()
+  // The first content block isn't guaranteed to be text (e.g. refusals), so
+  // find the text block instead of assuming content[0].
+  const block = response.data?.content?.find(b => b.type === 'text')
+  if (!block?.text) {
+    const e = new Error('The trip planner returned an empty response. Please try again.')
+    e.statusCode = 502
+    throw e
+  }
+  const cleaned = block.text.replace(/```json|```/g, '').trim()
 
   try {
     return JSON.parse(cleaned)
   } catch (err) {
-    console.error('Failed to parse Claude response as JSON:', cleaned)
-    throw new Error('Claude returned malformed JSON. Try again or reduce response complexity.')
+    console.error('Failed to parse Claude response as JSON:', cleaned.slice(0, 500))
+    const e = new Error('The trip planner returned an unexpected format. Please try again.')
+    e.statusCode = 502
+    throw e
   }
 }
