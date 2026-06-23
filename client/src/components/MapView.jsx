@@ -39,6 +39,61 @@ const AIRPORTS = {
   ASE: { lat: 39.2232, lng: -106.8689 },
   TEX: { lat: 37.9536, lng: -107.9088 },
   SMF: { lat: 38.6954, lng: -121.5908 },
+  // Additional North America
+  ABQ: { lat: 35.0402, lng: -106.6090 },
+  BOI: { lat: 43.5644, lng: -116.2228 },
+  BTV: { lat: 44.4719, lng: -73.1533 },
+  BZN: { lat: 45.7772, lng: -111.1530 },
+  DRO: { lat: 37.1515, lng: -107.7538 },
+  FCA: { lat: 48.3105, lng: -114.2560 },
+  GUC: { lat: 38.5339, lng: -106.9331 },
+  JAC: { lat: 43.6073, lng: -110.7377 },
+  PWM: { lat: 43.6462, lng: -70.3093 },
+  RDM: { lat: 44.2541, lng: -121.1500 },
+  SUN: { lat: 43.5044, lng: -114.2961 },
+  // Canada
+  YEG: { lat: 53.3097, lng: -113.5800 },
+  YUL: { lat: 45.4706, lng: -73.7408 },
+  YQB: { lat: 46.7911, lng: -71.3933 },
+  YCG: { lat: 49.2964, lng: -117.6322 },
+  YKA: { lat: 50.7022, lng: -120.4442 },
+  YXC: { lat: 49.6108, lng: -115.7822 },
+  // Europe
+  GVA: { lat: 46.2381, lng: 6.1090 },
+  ZRH: { lat: 47.4647, lng: 8.5492 },
+  INN: { lat: 47.2602, lng: 11.3440 },
+  SZG: { lat: 47.7933, lng: 13.0043 },
+  MUC: { lat: 48.3538, lng: 11.7861 },
+  GRZ: { lat: 46.9911, lng: 15.4396 },
+  GNB: { lat: 45.3629, lng: 5.3294 },
+  TRN: { lat: 45.2008, lng: 7.6496 },
+  VCE: { lat: 45.5053, lng: 12.3519 },
+  VRN: { lat: 45.3957, lng: 10.8885 },
+  BGY: { lat: 45.6739, lng: 9.7042 },
+  BZO: { lat: 46.4602, lng: 11.3264 },
+  OSD: { lat: 63.1944, lng: 14.5003 },
+  // Asia
+  CTS: { lat: 42.7752, lng: 141.6923 },
+  HND: { lat: 35.5494, lng: 139.7798 },
+  NRT: { lat: 35.7720, lng: 140.3929 },
+  ITM: { lat: 34.7855, lng: 135.4382 },
+  AOJ: { lat: 40.7347, lng: 140.6907 },
+  SDJ: { lat: 38.1397, lng: 140.9171 },
+  ICN: { lat: 37.4602, lng: 126.4407 },
+  PEK: { lat: 40.0799, lng: 116.6031 },
+  // Southern Hemisphere
+  SCL: { lat: -33.3930, lng: -70.7858 },
+  CCP: { lat: -36.7727, lng: -73.0631 },
+  MDZ: { lat: -32.8317, lng: -68.7929 },
+  BRC: { lat: -41.1512, lng: -71.1575 },
+  CPC: { lat: -40.0754, lng: -71.1373 },
+  NQN: { lat: -38.9490, lng: -68.1557 },
+  ZQN: { lat: -45.0211, lng: 168.7392 },
+  CHC: { lat: -43.4894, lng: 172.5322 },
+  WLG: { lat: -41.3272, lng: 174.8053 },
+  MEL: { lat: -37.6690, lng: 144.8410 },
+  AVV: { lat: -38.0394, lng: 144.4694 },
+  CBR: { lat: -35.3069, lng: 149.1950 },
 }
 
 function getCoords(code) {
@@ -186,10 +241,12 @@ export default function MapView({ resorts, flightSuggestions }) {
           .addTo(map.current)
       })
 
-      // Fit map to show everything
+      // Frame the map on the resorts (plus the destination airport) rather than
+      // the whole departure→destination flight span, so the ski area isn't tiny
+      // and stuck at the edge. The departure marker + arc still draw; pan/zoom
+      // out to see the full flight path.
       const bounds = new mapboxgl.LngLatBounds()
       validResorts.forEach(r => bounds.extend([r.mapboxCoords.lng, r.mapboxCoords.lat]))
-      if (departureCoords) bounds.extend([departureCoords.lng, departureCoords.lat])
       if (destinationCoords) bounds.extend([destinationCoords.lng, destinationCoords.lat])
       map.current.fitBounds(bounds, { padding: 80, maxZoom: 9 })
     })
