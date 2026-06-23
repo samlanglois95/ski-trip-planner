@@ -180,12 +180,53 @@ Return ONLY valid JSON in this exact structure, no extra text:
   }
   const cleaned = block.text.replace(/```json|```/g, '').trim()
 
+  let plan
   try {
-    return JSON.parse(cleaned)
+    plan = JSON.parse(cleaned)
   } catch (err) {
     console.error('Failed to parse Claude response as JSON:', cleaned.slice(0, 500))
     const e = new Error('The trip planner returned an unexpected format. Please try again.')
     e.statusCode = 502
     throw e
   }
+
+  // Replace the model's booking URLs with deterministic, date-aware links built
+  // from the real inputs, so flights / lodging / rental car always resolve and
+  // land on the correct dates + guest count. (Lift-ticket links stay the
+  // grounded official resort pages from resorts.json.)
+  if (validLength) {
+    const apt = (code) => (code || '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3)
+
+    if (Array.isArray(plan.flightSuggestions)) {
+      for (const f of plan.flightSuggestions) {
+        const dep = apt(f.departureAirport)
+        const dest = apt(f.nearestAirport)
+        if (dep.length === 3 && dest.length === 3) {
+          f.searchUrl = `https://www.kayak.com/flights/${dep}-${dest}/${startDate}/${endDate}?sort=bestflight_a`
+        }
+      }
+      const destApt = apt(plan.flightSuggestions[0]?.nearestAirport)
+      if (destApt.length === 3) {
+        plan.rentalCarUrl = `https://www.kayak.com/cars/${destApt}/${startDate}/${endDate}`
+      }
+    }
+
+    const stayNear = plan.topResorts?.[0]?.name ||
+      (Array.isArray(preferredRegion) ? preferredRegion[0] : preferredRegion)
+    if (Array.isArray(plan.lodgingSuggestions) && stayNear) {
+      const loc = encodeURIComponent(stayNear)
+      // Honour an explicit Airbnb-style preference from the extras.
+      const wantsAirbnb = /airbnb|house|chalet|condo|apartment|rental home|vacation home/i.test(extras || '')
+      for (const l of plan.lodgingSuggestions) {
+        if (wantsAirbnb || /airbnb/i.test(l.type || '')) {
+          l.searchUrl = `https://www.airbnb.com/s/${loc}/homes?checkin=${startDate}&checkout=${endDate}&adults=${groupCount}`
+          if (!/airbnb/i.test(l.type || '')) l.type = 'Airbnb'
+        } else {
+          l.searchUrl = `https://www.booking.com/searchresults.html?ss=${loc}&checkin=${startDate}&checkout=${endDate}&group_adults=${groupCount}`
+        }
+      }
+    }
+  }
+
+  return plan
 }
