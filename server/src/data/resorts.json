@@ -7,11 +7,20 @@
     "passType": "Epic",
     "lat": 39.6433,
     "lng": -106.3781,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.vail.com",
     "tickets": "https://www.vail.com/plan-your-trip/tickets.aspx",
     "nearestAirport": "EGE",
-    "tags": ["powder", "village", "apres-ski", "luxury"]
+    "tags": [
+      "powder",
+      "village",
+      "apres-ski",
+      "luxury"
+    ]
   },
   {
     "name": "Breckenridge",
@@ -21,11 +30,21 @@
     "passType": "Epic",
     "lat": 39.4817,
     "lng": -106.0384,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.breckenridge.com",
     "tickets": "https://www.breckenridge.com/plan-your-trip/lift-tickets.aspx",
     "nearestAirport": "DEN",
-    "tags": ["town", "beginner-friendly", "high-altitude", "terrain-variety"]
+    "tags": [
+      "town",
+      "beginner-friendly",
+      "high-altitude",
+      "terrain-variety"
+    ]
   },
   {
     "name": "Beaver Creek",
@@ -35,11 +54,20 @@
     "passType": "Epic",
     "lat": 39.6042,
     "lng": -106.5165,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.beavercreek.com",
     "tickets": "https://www.beavercreek.com/plan-your-trip/lift-tickets.aspx",
     "nearestAirport": "EGE",
-    "tags": ["luxury", "family", "groomed", "village"]
+    "tags": [
+      "luxury",
+      "family",
+      "groomed",
+      "village"
+    ]
   },
   {
     "name": "Keystone",
@@ -49,11 +77,19 @@
     "passType": "Epic",
     "lat": 39.6042,
     "lng": -105.9453,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.keystoneresort.com",
     "tickets": "https://www.keystoneresort.com/plan-your-trip/lift-tickets.aspx",
     "nearestAirport": "DEN",
-    "tags": ["family", "night-skiing", "beginner-friendly"]
+    "tags": [
+      "family",
+      "night-skiing",
+      "beginner-friendly"
+    ]
   },
   {
     "name": "Crested Butte",
@@ -63,11 +99,20 @@
     "passType": "Epic",
     "lat": 38.8697,
     "lng": -106.9878,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.skicb.com",
     "tickets": "https://www.skicb.com/plan-your-trip/lift-tickets.aspx",
     "nearestAirport": "GUC",
-    "tags": ["extreme-terrain", "powder", "charming-town", "off-piste"]
+    "tags": [
+      "extreme-terrain",
+      "powder",
+      "charming-town",
+      "off-piste"
+    ]
   },
   {
     "name": "Aspen Snowmass",
@@ -77,11 +122,21 @@
     "passType": "Ikon",
     "lat": 39.2084,
     "lng": -106.9491,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.aspensnowmass.com",
     "tickets": "https://www.aspensnowmass.com/plan-your-trip/lift-tickets",
     "nearestAirport": "ASE",
-    "tags": ["luxury", "four-mountains", "apres-ski", "powder"]
+    "tags": [
+      "luxury",
+      "four-mountains",
+      "apres-ski",
+      "powder"
+    ]
   },
   {
     "name": "Steamboat Springs",
@@ -91,11 +146,20 @@
     "passType": "Ikon",
     "lat": 40.4572,
     "lng": -106.8045,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.steamboat.com",
     "tickets": "https://www.steamboat.com/plan-your-trip/lift-tickets",
     "nearestAirport": "HDN",
-    "tags": ["cowboy-culture", "champagne-powder", "family", "tree-skiing"]
+    "tags": [
+      "cowboy-culture",
+      "champagne-powder",
+      "family",
+      "tree-skiing"
+    ]
   },
   {
     "name": "Winter Park",
@@ -105,11 +169,21 @@
     "passType": "Ikon",
     "lat": 39.8868,
     "lng": -105.7625,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.winterparkresort.com",
     "tickets": "https://www.winterparkresort.com/plan-your-trip/lift-tickets",
     "nearestAirport": "DEN",
-    "tags": ["terrain-variety", "moguls", "family", "accessible"]
+    "tags": [
+      "terrain-variety",
+      "moguls",
+      "family",
+      "accessible"
+    ]
   },
   {
     "name": "Telluride",
@@ -119,11 +193,21 @@
     "passType": "Ikon",
     "lat": 37.9375,
     "lng": -107.8123,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.telluride.com",
     "tickets": "https://www.telluride.com/plan-your-trip/lift-tickets",
     "nearestAirport": "TEX",
-    "tags": ["remote", "luxury", "powder", "box-canyon", "scenic"]
+    "tags": [
+      "remote",
+      "luxury",
+      "powder",
+      "box-canyon",
+      "scenic"
+    ]
   },
   {
     "name": "Park City Mountain Resort",
@@ -132,12 +216,21 @@
     "continent": "North America",
     "passType": "Epic",
     "lat": 40.6461,
-    "lng": -111.4980,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "lng": -111.498,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.parkcitymountain.com",
     "tickets": "https://www.parkcitymountain.com/plan-your-trip/lift-access/lift-tickets.aspx",
     "nearestAirport": "SLC",
-    "tags": ["largest-us-resort", "town", "family", "accessible"]
+    "tags": [
+      "largest-us-resort",
+      "town",
+      "family",
+      "accessible"
+    ]
   },
   {
     "name": "Snowbird",
@@ -147,11 +240,20 @@
     "passType": "Ikon",
     "lat": 40.5797,
     "lng": -111.6558,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.snowbird.com",
     "tickets": "https://www.snowbird.com/lift-tickets/",
     "nearestAirport": "SLC",
-    "tags": ["deep-powder", "steep-terrain", "long-season", "tram"]
+    "tags": [
+      "deep-powder",
+      "steep-terrain",
+      "long-season",
+      "tram"
+    ]
   },
   {
     "name": "Alta Ski Area",
@@ -161,11 +263,21 @@
     "passType": "Ikon",
     "lat": 40.5884,
     "lng": -111.6386,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.alta.com",
     "tickets": "https://www.alta.com/plan/lift-tickets",
     "nearestAirport": "SLC",
-    "tags": ["powder", "ski-only", "traditional", "deep-snow"]
+    "tags": [
+      "powder",
+      "ski-only",
+      "traditional",
+      "deep-snow"
+    ]
   },
   {
     "name": "Deer Valley",
@@ -175,11 +287,21 @@
     "passType": "Ikon",
     "lat": 40.6374,
     "lng": -111.4783,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.deervalley.com",
     "tickets": "https://www.deervalley.com/plan-your-visit/lift-tickets",
     "nearestAirport": "SLC",
-    "tags": ["luxury", "groomed", "ski-only", "service", "no-snowboards"]
+    "tags": [
+      "luxury",
+      "groomed",
+      "ski-only",
+      "service",
+      "no-snowboards"
+    ]
   },
   {
     "name": "Mammoth Mountain",
@@ -189,11 +311,21 @@
     "passType": "Ikon",
     "lat": 37.6308,
     "lng": -119.0326,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.mammothmountain.com",
     "tickets": "https://www.mammothmountain.com/plan-your-trip/lift-tickets",
     "nearestAirport": "MMH",
-    "tags": ["long-season", "high-altitude", "california-sunshine", "terrain-variety"]
+    "tags": [
+      "long-season",
+      "high-altitude",
+      "california-sunshine",
+      "terrain-variety"
+    ]
   },
   {
     "name": "Palisades Tahoe",
@@ -203,11 +335,20 @@
     "passType": "Ikon",
     "lat": 39.1969,
     "lng": -120.2358,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.palisadestahoe.com",
     "tickets": "https://www.palisadestahoe.com/plan-your-trip/lift-tickets",
     "nearestAirport": "RNO",
-    "tags": ["olympic-history", "challenging-terrain", "lake-tahoe", "powder"]
+    "tags": [
+      "olympic-history",
+      "challenging-terrain",
+      "lake-tahoe",
+      "powder"
+    ]
   },
   {
     "name": "Heavenly",
@@ -216,12 +357,21 @@
     "continent": "North America",
     "passType": "Epic",
     "lat": 38.9353,
-    "lng": -119.9400,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "lng": -119.94,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.skiheavenly.com",
     "tickets": "https://www.skiheavenly.com/plan-your-trip/lift-tickets.aspx",
     "nearestAirport": "RNO",
-    "tags": ["lake-tahoe-views", "nightlife", "two-states", "lake-views"]
+    "tags": [
+      "lake-tahoe-views",
+      "nightlife",
+      "two-states",
+      "lake-views"
+    ]
   },
   {
     "name": "Jackson Hole",
@@ -231,11 +381,21 @@
     "passType": "Ikon",
     "lat": 43.5875,
     "lng": -110.8277,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.jacksonhole.com",
     "tickets": "https://www.jacksonhole.com/lift-tickets.html",
     "nearestAirport": "JAC",
-    "tags": ["expert-terrain", "powder", "tram", "national-park", "iconic"]
+    "tags": [
+      "expert-terrain",
+      "powder",
+      "tram",
+      "national-park",
+      "iconic"
+    ]
   },
   {
     "name": "Big Sky",
@@ -245,11 +405,20 @@
     "passType": "Ikon",
     "lat": 45.2838,
     "lng": -111.4013,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.bigskyresort.com",
     "tickets": "https://www.bigskyresort.com/plan-your-trip/lift-tickets",
     "nearestAirport": "BZN",
-    "tags": ["most-skiable-acres", "uncrowded", "powder", "remote"]
+    "tags": [
+      "most-skiable-acres",
+      "uncrowded",
+      "powder",
+      "remote"
+    ]
   },
   {
     "name": "Sun Valley",
@@ -259,11 +428,22 @@
     "passType": "Ikon",
     "lat": 43.6963,
     "lng": -114.3512,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.sunvalley.com",
     "tickets": "https://www.sunvalley.com/ski/lift-tickets",
     "nearestAirport": "SUN",
-    "tags": ["historic", "luxury", "groomed", "iconic", "celebrity"]
+    "tags": [
+      "historic",
+      "luxury",
+      "groomed",
+      "iconic",
+      "celebrity"
+    ]
   },
   {
     "name": "Mt. Bachelor",
@@ -273,11 +453,21 @@
     "passType": "Ikon",
     "lat": 43.9791,
     "lng": -121.6878,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.mtbachelor.com",
     "tickets": "https://www.mtbachelor.com/plan-your-trip/lift-tickets",
     "nearestAirport": "RDM",
-    "tags": ["volcano", "powder", "long-season", "pacific-northwest"]
+    "tags": [
+      "volcano",
+      "powder",
+      "long-season",
+      "pacific-northwest"
+    ]
   },
   {
     "name": "Crystal Mountain",
@@ -287,11 +477,20 @@
     "passType": "Ikon",
     "lat": 46.9357,
     "lng": -121.4749,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.crystalmountainresort.com",
     "tickets": "https://www.crystalmountainresort.com/plan-your-trip/lift-tickets",
     "nearestAirport": "SEA",
-    "tags": ["rainier-views", "powder", "pacific-northwest", "steep"]
+    "tags": [
+      "rainier-views",
+      "powder",
+      "pacific-northwest",
+      "steep"
+    ]
   },
   {
     "name": "Stowe",
@@ -301,11 +500,21 @@
     "passType": "Epic",
     "lat": 44.5303,
     "lng": -72.7814,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.stowe.com",
     "tickets": "https://www.stowe.com/plan-your-trip/lift-tickets.aspx",
     "nearestAirport": "BTV",
-    "tags": ["new-england", "charming-village", "iconic", "east-coast"]
+    "tags": [
+      "new-england",
+      "charming-village",
+      "iconic",
+      "east-coast"
+    ]
   },
   {
     "name": "Killington",
@@ -315,11 +524,21 @@
     "passType": "Ikon",
     "lat": 43.6045,
     "lng": -72.8201,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.killington.com",
     "tickets": "https://www.killington.com/plan-your-trip/lift-tickets",
     "nearestAirport": "BTV",
-    "tags": ["beast-of-east", "longest-season", "new-england", "apres-ski"]
+    "tags": [
+      "beast-of-east",
+      "longest-season",
+      "new-england",
+      "apres-ski"
+    ]
   },
   {
     "name": "Whistler Blackcomb",
@@ -329,11 +548,22 @@
     "passType": "Epic",
     "lat": 50.1163,
     "lng": -122.9574,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.whistlerblackcomb.com",
     "tickets": "https://www.whistlerblackcomb.com/plan-your-trip/lift-tickets.aspx",
     "nearestAirport": "YVR",
-    "tags": ["largest-north-america", "village", "glacier", "powder", "iconic"]
+    "tags": [
+      "largest-north-america",
+      "village",
+      "glacier",
+      "powder",
+      "iconic"
+    ]
   },
   {
     "name": "Revelstoke Mountain Resort",
@@ -343,11 +573,20 @@
     "passType": "Ikon",
     "lat": 51.0568,
     "lng": -118.1956,
-    "skillLevels": ["advanced", "expert"],
+    "skillLevels": [
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.revelstokemountainresort.com",
     "tickets": "https://www.revelstokemountainresort.com/plan-your-trip/lift-tickets",
     "nearestAirport": "YVR",
-    "tags": ["deepest-snowpack", "vertical", "powder", "heli-ski", "expert"]
+    "tags": [
+      "deepest-snowpack",
+      "vertical",
+      "powder",
+      "heli-ski",
+      "expert"
+    ]
   },
   {
     "name": "Banff Sunshine / Lake Louise / Mt. Norquay (SkiBig3)",
@@ -357,11 +596,21 @@
     "passType": "Ikon",
     "lat": 51.1784,
     "lng": -115.5708,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.skibig3.com",
     "tickets": "https://www.skibig3.com/ski-passes",
     "nearestAirport": "YYC",
-    "tags": ["national-park", "scenic", "three-resorts", "canadian-rockies"]
+    "tags": [
+      "national-park",
+      "scenic",
+      "three-resorts",
+      "canadian-rockies"
+    ]
   },
   {
     "name": "Mont-Tremblant",
@@ -371,11 +620,20 @@
     "passType": "Ikon",
     "lat": 46.2132,
     "lng": -74.5858,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.tremblant.ca",
     "tickets": "https://www.tremblant.ca/plan/tickets-and-passes",
     "nearestAirport": "YUL",
-    "tags": ["french-culture", "village", "east-canada", "apres-ski"]
+    "tags": [
+      "french-culture",
+      "village",
+      "east-canada",
+      "apres-ski"
+    ]
   },
   {
     "name": "Niseko United",
@@ -385,11 +643,22 @@
     "passType": "Ikon",
     "lat": 42.8008,
     "lng": 140.6879,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.niseko.ne.jp/en/",
     "tickets": "https://www.niseko.ne.jp/en/ski/lift-ticket/",
     "nearestAirport": "CTS",
-    "tags": ["japow", "powder", "international", "four-resorts", "onsen"]
+    "tags": [
+      "japow",
+      "powder",
+      "international",
+      "four-resorts",
+      "onsen"
+    ]
   },
   {
     "name": "Hakuba Valley",
@@ -399,11 +668,21 @@
     "passType": "Epic",
     "lat": 36.6984,
     "lng": 137.8633,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.hakubavalley.com",
     "tickets": "https://www.hakubavalley.com/en/ski/lift-ticket/",
     "nearestAirport": "ITM",
-    "tags": ["olympic-venue", "ten-resorts", "powder", "japanese-culture"]
+    "tags": [
+      "olympic-venue",
+      "ten-resorts",
+      "powder",
+      "japanese-culture"
+    ]
   },
   {
     "name": "Furano Ski Resort",
@@ -413,11 +692,20 @@
     "passType": "Ikon",
     "lat": 43.3503,
     "lng": 142.3833,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.princehotels.com/ski/furano/",
     "tickets": "https://www.princehotels.com/ski/furano/lift-ticket/",
     "nearestAirport": "CTS",
-    "tags": ["japow", "uncrowded", "lavender-fields", "powder"]
+    "tags": [
+      "japow",
+      "uncrowded",
+      "lavender-fields",
+      "powder"
+    ]
   },
   {
     "name": "Rusutsu Resort",
@@ -427,11 +715,20 @@
     "passType": "Ikon",
     "lat": 42.7431,
     "lng": 140.9003,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.rusutsu.com/en/",
     "tickets": "https://www.rusutsu.com/en/winter/lift-ticket/",
     "nearestAirport": "CTS",
-    "tags": ["powder", "tree-skiing", "uncrowded", "three-mountains"]
+    "tags": [
+      "powder",
+      "tree-skiing",
+      "uncrowded",
+      "three-mountains"
+    ]
   },
   {
     "name": "Zao Onsen Ski Resort",
@@ -441,11 +738,21 @@
     "passType": "Ikon",
     "lat": 38.1431,
     "lng": 140.4533,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://zao-ski.or.jp/en/",
     "tickets": "https://zao-ski.or.jp/en/lift-ticket/",
     "nearestAirport": "SDJ",
-    "tags": ["snow-monsters", "onsen", "unique", "powder", "juhyo"]
+    "tags": [
+      "snow-monsters",
+      "onsen",
+      "unique",
+      "powder",
+      "juhyo"
+    ]
   },
   {
     "name": "Yunding Snow Park",
@@ -455,11 +762,21 @@
     "passType": "Ikon",
     "lat": 40.9231,
     "lng": 115.4567,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.yundinggpark.com",
     "tickets": "https://www.yundinggpark.com/tickets",
     "nearestAirport": "PEK",
-    "tags": ["olympic-venue", "halfpipe", "modern", "beijing-accessible"]
+    "tags": [
+      "olympic-venue",
+      "halfpipe",
+      "modern",
+      "beijing-accessible"
+    ]
   },
   {
     "name": "Mona Yongpyong",
@@ -469,11 +786,20 @@
     "passType": "Ikon",
     "lat": 37.6597,
     "lng": 128.6742,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.yongpyong.co.kr/en/",
     "tickets": "https://www.yongpyong.co.kr/en/ski/lift-ticket/",
     "nearestAirport": "ICN",
-    "tags": ["olympic-venue", "korean-culture", "modern", "pyeongchang"]
+    "tags": [
+      "olympic-venue",
+      "korean-culture",
+      "modern",
+      "pyeongchang"
+    ]
   },
   {
     "name": "Zermatt Matterhorn",
@@ -483,11 +809,21 @@
     "passType": "Ikon",
     "lat": 46.0207,
     "lng": 7.7491,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.zermatt.ch/en/skiing",
     "tickets": "https://www.zermatt.ch/en/skiing/lift-tickets",
     "nearestAirport": "GVA",
-    "tags": ["iconic", "glacier", "car-free", "matterhorn-views", "luxury"]
+    "tags": [
+      "iconic",
+      "glacier",
+      "car-free",
+      "matterhorn-views",
+      "luxury"
+    ]
   },
   {
     "name": "St. Moritz",
@@ -497,11 +833,21 @@
     "passType": "Ikon",
     "lat": 46.4908,
     "lng": 9.8355,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.engadin.ch/en/",
     "tickets": "https://www.engadin.ch/en/winter/skiing/lift-tickets/",
     "nearestAirport": "ZRH",
-    "tags": ["luxury", "glamour", "sunshine", "olympic-history", "iconic"]
+    "tags": [
+      "luxury",
+      "glamour",
+      "sunshine",
+      "olympic-history",
+      "iconic"
+    ]
   },
   {
     "name": "Andermatt-Sedrun-Disentis",
@@ -511,11 +857,20 @@
     "passType": "Epic",
     "lat": 46.6344,
     "lng": 8.5939,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.andermatt-sedrun-disentis.ch/en/",
     "tickets": "https://www.andermatt-sedrun-disentis.ch/en/winter/lift-tickets",
     "nearestAirport": "ZRH",
-    "tags": ["powder", "uncrowded", "long-runs", "authentic-swiss"]
+    "tags": [
+      "powder",
+      "uncrowded",
+      "long-runs",
+      "authentic-swiss"
+    ]
   },
   {
     "name": "Chamonix Mont-Blanc",
@@ -525,11 +880,21 @@
     "passType": "Ikon",
     "lat": 45.9237,
     "lng": 6.8694,
-    "skillLevels": ["advanced", "expert"],
+    "skillLevels": [
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.chamonix.com/skiing",
     "tickets": "https://www.chamonix.com/skiing/lift-passes",
     "nearestAirport": "GVA",
-    "tags": ["iconic", "freeride", "glacier", "extreme", "mont-blanc", "bucket-list"]
+    "tags": [
+      "iconic",
+      "freeride",
+      "glacier",
+      "extreme",
+      "mont-blanc",
+      "bucket-list"
+    ]
   },
   {
     "name": "Les 3 Vallées (Courchevel/Méribel/Val Thorens)",
@@ -538,12 +903,22 @@
     "continent": "Europe",
     "passType": "Epic",
     "lat": 45.4154,
-    "lng": 6.6340,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "lng": 6.634,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.les3vallees.com/en/",
     "tickets": "https://www.les3vallees.com/en/ski-passes/",
     "nearestAirport": "GVA",
-    "tags": ["worlds-largest-ski-area", "luxury", "interconnected", "terrain-variety"]
+    "tags": [
+      "worlds-largest-ski-area",
+      "luxury",
+      "interconnected",
+      "terrain-variety"
+    ]
   },
   {
     "name": "Verbier 4 Vallées",
@@ -553,11 +928,21 @@
     "passType": "Epic",
     "lat": 46.0959,
     "lng": 7.2292,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.verbier.ch/en/",
     "tickets": "https://www.verbier.ch/en/ski-passes/",
     "nearestAirport": "GVA",
-    "tags": ["freeride", "powder", "apres-ski", "luxury", "iconic"]
+    "tags": [
+      "freeride",
+      "powder",
+      "apres-ski",
+      "luxury",
+      "iconic"
+    ]
   },
   {
     "name": "Kitzbühel",
@@ -567,11 +952,21 @@
     "passType": "Ikon",
     "lat": 47.4467,
     "lng": 12.3923,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.kitzbuehel.com/en/",
     "tickets": "https://www.kitzbuehel.com/en/winter/ski-circus/lift-passes/",
     "nearestAirport": "INN",
-    "tags": ["hahnenkamm", "historic", "world-cup", "charming-town", "iconic"]
+    "tags": [
+      "hahnenkamm",
+      "historic",
+      "world-cup",
+      "charming-town",
+      "iconic"
+    ]
   },
   {
     "name": "Ischgl",
@@ -581,11 +976,21 @@
     "passType": "Ikon",
     "lat": 47.0142,
     "lng": 10.2928,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.ischgl.com/en/",
     "tickets": "https://www.ischgl.com/en/ski/ski-passes/",
     "nearestAirport": "INN",
-    "tags": ["apres-ski", "concerts", "austria-switzerland", "party", "high-altitude"]
+    "tags": [
+      "apres-ski",
+      "concerts",
+      "austria-switzerland",
+      "party",
+      "high-altitude"
+    ]
   },
   {
     "name": "Sölden",
@@ -595,11 +1000,21 @@
     "passType": "Epic",
     "lat": 46.9628,
     "lng": 11.0056,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.soelden.com/en/",
     "tickets": "https://www.soelden.com/en/winter/ski-passes/",
     "nearestAirport": "INN",
-    "tags": ["glacier", "world-cup", "high-altitude", "james-bond", "powder"]
+    "tags": [
+      "glacier",
+      "world-cup",
+      "high-altitude",
+      "james-bond",
+      "powder"
+    ]
   },
   {
     "name": "Mayrhofen",
@@ -609,11 +1024,22 @@
     "passType": "Epic",
     "lat": 47.1667,
     "lng": 11.8667,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.mayrhofen.at/en/",
     "tickets": "https://www.mayrhofen.at/en/ski/ski-passes/",
     "nearestAirport": "INN",
-    "tags": ["steep", "apres-ski", "harakiri", "family", "lively"]
+    "tags": [
+      "steep",
+      "apres-ski",
+      "harakiri",
+      "family",
+      "lively"
+    ]
   },
   {
     "name": "Dolomiti Superski",
@@ -623,11 +1049,22 @@
     "passType": "Ikon",
     "lat": 46.5197,
     "lng": 11.9619,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.dolomitisuperski.com/en/",
     "tickets": "https://www.dolomitisuperski.com/en/Ski-Pass",
     "nearestAirport": "VCE",
-    "tags": ["12-resorts", "scenic", "italian-food", "largest-ski-area", "dolomites"]
+    "tags": [
+      "12-resorts",
+      "scenic",
+      "italian-food",
+      "largest-ski-area",
+      "dolomites"
+    ]
   },
   {
     "name": "Cortina d'Ampezzo",
@@ -637,11 +1074,21 @@
     "passType": "Ikon",
     "lat": 46.5362,
     "lng": 12.1356,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.cortina.dolomiti.org/en/",
     "tickets": "https://www.cortina.dolomiti.org/en/ski/lift-passes/",
     "nearestAirport": "VCE",
-    "tags": ["glamour", "olympic-2026", "dolomites", "scenic", "luxury"]
+    "tags": [
+      "glamour",
+      "olympic-2026",
+      "dolomites",
+      "scenic",
+      "luxury"
+    ]
   },
   {
     "name": "Valle Nevado",
@@ -651,11 +1098,22 @@
     "passType": "Ikon",
     "lat": -33.3564,
     "lng": -70.2986,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.vallenevado.com/en/",
     "tickets": "https://www.vallenevado.com/en/ski-passes/",
     "nearestAirport": "SCL",
-    "tags": ["andes", "summer-skiing", "southern-hemisphere", "high-altitude", "powder"]
+    "tags": [
+      "andes",
+      "summer-skiing",
+      "southern-hemisphere",
+      "high-altitude",
+      "powder"
+    ]
   },
   {
     "name": "Portillo",
@@ -665,11 +1123,21 @@
     "passType": "none",
     "lat": -32.8333,
     "lng": -70.1333,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.skiportillo.com/en/",
     "tickets": "https://www.skiportillo.com/en/ski-passes/",
     "nearestAirport": "SCL",
-    "tags": ["iconic", "andes", "historic", "southern-hemisphere", "lake-views"]
+    "tags": [
+      "iconic",
+      "andes",
+      "historic",
+      "southern-hemisphere",
+      "lake-views"
+    ]
   },
   {
     "name": "Las Leñas",
@@ -677,13 +1145,23 @@
     "country": "Argentina",
     "continent": "South America",
     "passType": "none",
-    "lat": -35.1500,
+    "lat": -35.15,
     "lng": -70.0667,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.laslenas.com/en/",
     "tickets": "https://www.laslenas.com/en/ski-passes/",
     "nearestAirport": "MDZ",
-    "tags": ["powder", "andes", "expert-terrain", "remote", "southern-hemisphere"]
+    "tags": [
+      "powder",
+      "andes",
+      "expert-terrain",
+      "remote",
+      "southern-hemisphere"
+    ]
   },
   {
     "name": "Bariloche (Cerro Catedral)",
@@ -692,12 +1170,23 @@
     "continent": "South America",
     "passType": "none",
     "lat": -41.1833,
-    "lng": -71.4500,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "lng": -71.45,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.catedralaltapatagonia.com/en/",
     "tickets": "https://www.catedralaltapatagonia.com/en/ski-passes/",
     "nearestAirport": "BRC",
-    "tags": ["patagonia", "southern-hemisphere", "largest-south-america", "scenic", "lakes"]
+    "tags": [
+      "patagonia",
+      "southern-hemisphere",
+      "largest-south-america",
+      "scenic",
+      "lakes"
+    ]
   },
   {
     "name": "The Remarkables",
@@ -707,11 +1196,21 @@
     "passType": "Ikon",
     "lat": -45.0297,
     "lng": 168.7936,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.theremarkables.co.nz/",
     "tickets": "https://www.theremarkables.co.nz/tickets-and-passes/",
     "nearestAirport": "ZQN",
-    "tags": ["southern-hemisphere", "queenstown", "scenic", "summer-skiing", "lake-views"]
+    "tags": [
+      "southern-hemisphere",
+      "queenstown",
+      "scenic",
+      "summer-skiing",
+      "lake-views"
+    ]
   },
   {
     "name": "Coronet Peak",
@@ -721,11 +1220,20 @@
     "passType": "Ikon",
     "lat": -44.9833,
     "lng": 168.7167,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.coronetpeak.co.nz/",
     "tickets": "https://www.coronetpeak.co.nz/tickets-and-passes/",
     "nearestAirport": "ZQN",
-    "tags": ["queenstown", "night-skiing", "southern-hemisphere", "accessible"]
+    "tags": [
+      "queenstown",
+      "night-skiing",
+      "southern-hemisphere",
+      "accessible"
+    ]
   },
   {
     "name": "Treble Cone",
@@ -735,11 +1243,20 @@
     "passType": "none",
     "lat": -44.6333,
     "lng": 168.8667,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.treblecone.com/",
     "tickets": "https://www.treblecone.com/tickets/",
     "nearestAirport": "ZQN",
-    "tags": ["wanaka", "challenging", "southern-hemisphere", "lake-wanaka-views"]
+    "tags": [
+      "wanaka",
+      "challenging",
+      "southern-hemisphere",
+      "lake-wanaka-views"
+    ]
   },
   {
     "name": "Perisher",
@@ -749,11 +1266,20 @@
     "passType": "Epic",
     "lat": -36.4083,
     "lng": 148.4081,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.perisher.com.au/",
     "tickets": "https://www.perisher.com.au/lift-tickets/",
     "nearestAirport": "CBR",
-    "tags": ["largest-australia", "southern-hemisphere", "snowy-mountains", "accessible"]
+    "tags": [
+      "largest-australia",
+      "southern-hemisphere",
+      "snowy-mountains",
+      "accessible"
+    ]
   },
   {
     "name": "Thredbo",
@@ -763,11 +1289,20 @@
     "passType": "Ikon",
     "lat": -36.5024,
     "lng": 148.3022,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.thredbo.com.au/",
     "tickets": "https://www.thredbo.com.au/lift-tickets/",
     "nearestAirport": "CBR",
-    "tags": ["village", "australia", "southern-hemisphere", "longest-run-australia"]
+    "tags": [
+      "village",
+      "australia",
+      "southern-hemisphere",
+      "longest-run-australia"
+    ]
   },
   {
     "name": "Arapahoe Basin",
@@ -777,11 +1312,21 @@
     "passType": "none",
     "lat": 39.6428,
     "lng": -105.8713,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.arapahoebasin.com",
     "tickets": "https://www.arapahoebasin.com/lift-tickets/",
     "nearestAirport": "DEN",
-    "tags": ["high-altitude", "expert-terrain", "longest-season", "independent", "locals-favorite"]
+    "tags": [
+      "high-altitude",
+      "expert-terrain",
+      "longest-season",
+      "independent",
+      "locals-favorite"
+    ]
   },
   {
     "name": "Loveland Ski Area",
@@ -791,11 +1336,22 @@
     "passType": "none",
     "lat": 39.6803,
     "lng": -105.8978,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.skiloveland.com",
     "tickets": "https://www.skiloveland.com/lift-tickets/",
     "nearestAirport": "DEN",
-    "tags": ["affordable", "uncrowded", "independent", "locals-favorite", "no-frills"]
+    "tags": [
+      "affordable",
+      "uncrowded",
+      "independent",
+      "locals-favorite",
+      "no-frills"
+    ]
   },
   {
     "name": "Taos Ski Valley",
@@ -805,11 +1361,21 @@
     "passType": "none",
     "lat": 36.5953,
     "lng": -105.4517,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.skitaos.com",
     "tickets": "https://www.skitaos.com/lift-tickets/",
     "nearestAirport": "ABQ",
-    "tags": ["challenging", "southwest", "pueblo-culture", "independent", "steep"]
+    "tags": [
+      "challenging",
+      "southwest",
+      "pueblo-culture",
+      "independent",
+      "steep"
+    ]
   },
   {
     "name": "Mt. Hood Meadows",
@@ -818,12 +1384,23 @@
     "continent": "North America",
     "passType": "none",
     "lat": 45.3318,
-    "lng": -121.6640,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "lng": -121.664,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.skihood.com",
     "tickets": "https://www.skihood.com/lift-tickets/",
     "nearestAirport": "PDX",
-    "tags": ["volcano", "independent", "pacific-northwest", "year-round", "affordable"]
+    "tags": [
+      "volcano",
+      "independent",
+      "pacific-northwest",
+      "year-round",
+      "affordable"
+    ]
   },
   {
     "name": "Loon Mountain",
@@ -833,11 +1410,20 @@
     "passType": "Ikon",
     "lat": 44.0365,
     "lng": -71.6223,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.loonmtn.com",
     "tickets": "https://www.loonmtn.com/lift-tickets/",
     "nearestAirport": "BOS",
-    "tags": ["new-england", "family", "accessible", "new-hampshire"]
+    "tags": [
+      "new-england",
+      "family",
+      "accessible",
+      "new-hampshire"
+    ]
   },
   {
     "name": "Sugarloaf",
@@ -847,11 +1433,22 @@
     "passType": "Ikon",
     "lat": 45.0314,
     "lng": -70.3131,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.sugarloaf.com",
     "tickets": "https://www.sugarloaf.com/lift-tickets/",
     "nearestAirport": "PWM",
-    "tags": ["maine", "new-england", "glades", "remote", "steep"]
+    "tags": [
+      "maine",
+      "new-england",
+      "glades",
+      "remote",
+      "steep"
+    ]
   },
   {
     "name": "Sunday River",
@@ -861,11 +1458,21 @@
     "passType": "Ikon",
     "lat": 44.4706,
     "lng": -70.8564,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.sundayriver.com",
     "tickets": "https://www.sundayriver.com/lift-tickets/",
     "nearestAirport": "PWM",
-    "tags": ["maine", "new-england", "snowmaking", "family", "accessible"]
+    "tags": [
+      "maine",
+      "new-england",
+      "snowmaking",
+      "family",
+      "accessible"
+    ]
   },
   {
     "name": "Fernie Alpine Resort",
@@ -873,13 +1480,23 @@
     "country": "Canada",
     "continent": "North America",
     "passType": "Epic",
-    "lat": 49.4630,
+    "lat": 49.463,
     "lng": -115.0831,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.skifernie.com",
     "tickets": "https://www.skifernie.com/lift-tickets/",
     "nearestAirport": "YXC",
-    "tags": ["powder", "bowls", "glades", "british-columbia", "authentic"]
+    "tags": [
+      "powder",
+      "bowls",
+      "glades",
+      "british-columbia",
+      "authentic"
+    ]
   },
   {
     "name": "Kicking Horse Mountain Resort",
@@ -889,11 +1506,20 @@
     "passType": "Epic",
     "lat": 51.2973,
     "lng": -117.0498,
-    "skillLevels": ["advanced", "expert"],
+    "skillLevels": [
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.kickinghorseresort.com",
     "tickets": "https://www.kickinghorseresort.com/lift-tickets/",
     "nearestAirport": "YVR",
-    "tags": ["expert-terrain", "powder", "british-columbia", "steep", "remote"]
+    "tags": [
+      "expert-terrain",
+      "powder",
+      "british-columbia",
+      "steep",
+      "remote"
+    ]
   },
   {
     "name": "Kiroro Snow World",
@@ -903,11 +1529,21 @@
     "passType": "none",
     "lat": 43.1167,
     "lng": -141.0167,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.kiroro.co.jp/en/",
     "tickets": "https://www.kiroro.co.jp/en/ski/lift-ticket/",
     "nearestAirport": "CTS",
-    "tags": ["japow", "uncrowded", "deep-powder", "independent", "hidden-gem"]
+    "tags": [
+      "japow",
+      "uncrowded",
+      "deep-powder",
+      "independent",
+      "hidden-gem"
+    ]
   },
   {
     "name": "Madarao Kogen",
@@ -917,11 +1553,21 @@
     "passType": "none",
     "lat": 36.8833,
     "lng": -138.3667,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.madarao.jp/en/",
     "tickets": "https://www.madarao.jp/en/ski/lift-ticket/",
     "nearestAirport": "NRT",
-    "tags": ["japow", "tree-skiing", "independent", "authentic", "uncrowded"]
+    "tags": [
+      "japow",
+      "tree-skiing",
+      "independent",
+      "authentic",
+      "uncrowded"
+    ]
   },
   {
     "name": "Nozawa Onsen",
@@ -930,12 +1576,22 @@
     "continent": "Asia",
     "passType": "none",
     "lat": 36.9167,
-    "lng": -138.4500,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "lng": -138.45,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.nozawaski.com/en/",
     "tickets": "https://www.nozawaski.com/en/ski/lift-ticket/",
     "nearestAirport": "NRT",
-    "tags": ["onsen-village", "authentic-japan", "powder", "historic", "free-onsens"]
+    "tags": [
+      "onsen-village",
+      "authentic-japan",
+      "powder",
+      "historic",
+      "free-onsens"
+    ]
   },
   {
     "name": "Myoko Suginohara",
@@ -943,13 +1599,22 @@
     "country": "Japan",
     "continent": "Asia",
     "passType": "Ikon",
-    "lat": 36.9000,
+    "lat": 36.9,
     "lng": 138.1167,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.suginohara.jp/en/",
     "tickets": "https://www.suginohara.jp/en/lift-ticket/",
     "nearestAirport": "NRT",
-    "tags": ["japow", "longest-run-japan", "powder", "authentic"]
+    "tags": [
+      "japow",
+      "longest-run-japan",
+      "powder",
+      "authentic"
+    ]
   },
   {
     "name": "Méribel",
@@ -957,13 +1622,24 @@
     "country": "France",
     "continent": "Europe",
     "passType": "Epic",
-    "lat": 45.4000,
+    "lat": 45.4,
     "lng": 6.5667,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.meribel.net/en/",
     "tickets": "https://www.meribel.net/en/ski-passes/",
     "nearestAirport": "GVA",
-    "tags": ["les-3-vallees", "olympic-venue", "chalet-style", "family", "interconnected"]
+    "tags": [
+      "les-3-vallees",
+      "olympic-venue",
+      "chalet-style",
+      "family",
+      "interconnected"
+    ]
   },
   {
     "name": "Val d'Isère / Tignes",
@@ -972,12 +1648,22 @@
     "continent": "Europe",
     "passType": "none",
     "lat": 45.4483,
-    "lng": 6.9800,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "lng": 6.98,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.valdisere.com/en/",
     "tickets": "https://www.valdisere.com/en/ski-passes/",
     "nearestAirport": "GVA",
-    "tags": ["world-cup", "glacier", "espace-killy", "iconic", "challenging"]
+    "tags": [
+      "world-cup",
+      "glacier",
+      "espace-killy",
+      "iconic",
+      "challenging"
+    ]
   },
   {
     "name": "Alpe d'Huez",
@@ -985,13 +1671,24 @@
     "country": "France",
     "continent": "Europe",
     "passType": "none",
-    "lat": 45.0900,
-    "lng": 6.0700,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "lat": 45.09,
+    "lng": 6.07,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.alpedhuez.com/en/",
     "tickets": "https://www.alpedhuez.com/en/ski-passes/",
     "nearestAirport": "GNB",
-    "tags": ["sunshine", "high-altitude", "beginner-friendly", "iconic", "tour-de-france"]
+    "tags": [
+      "sunshine",
+      "high-altitude",
+      "beginner-friendly",
+      "iconic",
+      "tour-de-france"
+    ]
   },
   {
     "name": "Wengen / Grindelwald (Jungfrau Region)",
@@ -1001,11 +1698,21 @@
     "passType": "none",
     "lat": 46.6083,
     "lng": 7.9217,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.jungfrau.ch/en-gb/",
     "tickets": "https://www.jungfrau.ch/en-gb/ski-passes/",
     "nearestAirport": "ZRH",
-    "tags": ["eiger-views", "car-free", "scenic", "iconic", "family"]
+    "tags": [
+      "eiger-views",
+      "car-free",
+      "scenic",
+      "iconic",
+      "family"
+    ]
   },
   {
     "name": "Davos Klosters",
@@ -1013,13 +1720,23 @@
     "country": "Switzerland",
     "continent": "Europe",
     "passType": "none",
-    "lat": 46.8000,
+    "lat": 46.8,
     "lng": 9.8333,
-    "skillLevels": ["beginner", "intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.davos.ch/en/",
     "tickets": "https://www.davos.ch/en/ski-passes/",
     "nearestAirport": "ZRH",
-    "tags": ["largest-swiss-ski-area", "world-economic-forum", "varied-terrain", "authentic"]
+    "tags": [
+      "largest-swiss-ski-area",
+      "world-economic-forum",
+      "varied-terrain",
+      "authentic"
+    ]
   },
   {
     "name": "St. Anton am Arlberg",
@@ -1029,11 +1746,22 @@
     "passType": "Epic",
     "lat": 47.1297,
     "lng": 10.2681,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.stantonamarlberg.com/en/",
     "tickets": "https://www.stantonamarlberg.com/en/ski-passes/",
     "nearestAirport": "INN",
-    "tags": ["freeride-mecca", "apres-ski", "arlberg", "powder", "steep", "iconic"]
+    "tags": [
+      "freeride-mecca",
+      "apres-ski",
+      "arlberg",
+      "powder",
+      "steep",
+      "iconic"
+    ]
   },
   {
     "name": "Innsbruck / Stubai Glacier",
@@ -1043,11 +1771,21 @@
     "passType": "none",
     "lat": 47.1651,
     "lng": 11.1717,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.innsbruck.info/en/skiing/",
     "tickets": "https://www.innsbruck.info/en/skiing/ski-passes/",
     "nearestAirport": "INN",
-    "tags": ["city-skiing", "glacier", "olympic-city", "accessible", "year-round"]
+    "tags": [
+      "city-skiing",
+      "glacier",
+      "olympic-city",
+      "accessible",
+      "year-round"
+    ]
   },
   {
     "name": "Madonna di Campiglio",
@@ -1057,11 +1795,21 @@
     "passType": "none",
     "lat": 46.2333,
     "lng": 10.8167,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.campigliodolomiti.it/en/",
     "tickets": "https://www.campigliodolomiti.it/en/ski-passes/",
     "nearestAirport": "VRN",
-    "tags": ["glamour", "italian-style", "world-cup", "dolomites", "luxury"]
+    "tags": [
+      "glamour",
+      "italian-style",
+      "world-cup",
+      "dolomites",
+      "luxury"
+    ]
   },
   {
     "name": "Livigno",
@@ -1071,11 +1819,21 @@
     "passType": "none",
     "lat": 46.5369,
     "lng": 10.1369,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.skilivigno.com/en/",
     "tickets": "https://www.skilivigno.com/en/ski-passes/",
     "nearestAirport": "BGY",
-    "tags": ["duty-free", "high-altitude", "snowpark", "affordable", "lively"]
+    "tags": [
+      "duty-free",
+      "high-altitude",
+      "snowpark",
+      "affordable",
+      "lively"
+    ]
   },
   {
     "name": "El Colorado / Farellones",
@@ -1083,13 +1841,22 @@
     "country": "Chile",
     "continent": "South America",
     "passType": "none",
-    "lat": -33.3500,
+    "lat": -33.35,
     "lng": -70.2833,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.elcolorado.cl/en/",
     "tickets": "https://www.elcolorado.cl/en/ski-passes/",
     "nearestAirport": "SCL",
-    "tags": ["andes", "santiago-accessible", "southern-hemisphere", "budget-friendly"]
+    "tags": [
+      "andes",
+      "santiago-accessible",
+      "southern-hemisphere",
+      "budget-friendly"
+    ]
   },
   {
     "name": "Chapelco",
@@ -1098,12 +1865,22 @@
     "continent": "South America",
     "passType": "none",
     "lat": -40.1667,
-    "lng": -71.2500,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "lng": -71.25,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.chapelco.com/en/",
     "tickets": "https://www.chapelco.com/en/ski-passes/",
     "nearestAirport": "CPC",
-    "tags": ["patagonia", "southern-hemisphere", "lake-views", "authentic", "affordable"]
+    "tags": [
+      "patagonia",
+      "southern-hemisphere",
+      "lake-views",
+      "authentic",
+      "affordable"
+    ]
   },
   {
     "name": "Mt. Hutt",
@@ -1113,11 +1890,21 @@
     "passType": "none",
     "lat": -43.4833,
     "lng": -171.5167,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.mthutt.co.nz/",
     "tickets": "https://www.mthutt.co.nz/ski-passes/",
     "nearestAirport": "CHC",
-    "tags": ["canterbury", "southern-hemisphere", "long-season", "views", "accessible"]
+    "tags": [
+      "canterbury",
+      "southern-hemisphere",
+      "long-season",
+      "views",
+      "accessible"
+    ]
   },
   {
     "name": "Cardrona Alpine Resort",
@@ -1127,11 +1914,21 @@
     "passType": "Ikon",
     "lat": -44.8747,
     "lng": 168.9581,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.cardrona.com/",
     "tickets": "https://www.cardrona.com/ski-passes/",
     "nearestAirport": "ZQN",
-    "tags": ["wanaka", "family", "snowpark", "southern-hemisphere", "beginner-friendly"]
+    "tags": [
+      "wanaka",
+      "family",
+      "snowpark",
+      "southern-hemisphere",
+      "beginner-friendly"
+    ]
   },
   {
     "name": "Falls Creek",
@@ -1141,11 +1938,21 @@
     "passType": "Epic",
     "lat": -36.8667,
     "lng": 147.2833,
-    "skillLevels": ["beginner", "intermediate", "advanced"],
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
     "website": "https://www.fallscreek.com.au/",
     "tickets": "https://www.fallscreek.com.au/lift-tickets/",
     "nearestAirport": "AVV",
-    "tags": ["victoria", "australia", "ski-in-ski-out", "village", "southern-hemisphere"]
+    "tags": [
+      "victoria",
+      "australia",
+      "ski-in-ski-out",
+      "village",
+      "southern-hemisphere"
+    ]
   },
   {
     "name": "Mount Hotham",
@@ -1155,10 +1962,1675 @@
     "passType": "Epic",
     "lat": -36.9833,
     "lng": 147.1333,
-    "skillLevels": ["intermediate", "advanced", "expert"],
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
     "website": "https://www.mthotham.com.au/",
     "tickets": "https://www.mthotham.com.au/lift-tickets/",
     "nearestAirport": "AVV",
-    "tags": ["victoria", "australia", "challenging", "powder", "southern-hemisphere"]
+    "tags": [
+      "victoria",
+      "australia",
+      "challenging",
+      "powder",
+      "southern-hemisphere"
+    ]
+  },
+  {
+    "name": "Wolf Creek",
+    "region": "Colorado",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 37.4748,
+    "lng": -106.7972,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.wolfcreekski.com",
+    "tickets": "https://www.wolfcreekski.com/lift-tickets/",
+    "nearestAirport": "ABQ",
+    "tags": [
+      "highest-snowfall-colorado",
+      "affordable",
+      "uncrowded",
+      "independent",
+      "powder"
+    ]
+  },
+  {
+    "name": "Copper Mountain",
+    "region": "Colorado",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 39.5022,
+    "lng": -106.1503,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.coppercolorado.com",
+    "tickets": "https://www.coppercolorado.com/plan-your-trip/lift-tickets",
+    "nearestAirport": "DEN",
+    "tags": [
+      "natural-terrain-separation",
+      "terrain-park",
+      "accessible",
+      "colorado"
+    ]
+  },
+  {
+    "name": "Purgatory Resort",
+    "region": "Colorado",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 37.6296,
+    "lng": -107.8624,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.purgatoryresort.com",
+    "tickets": "https://www.purgatoryresort.com/lift-tickets/",
+    "nearestAirport": "DRO",
+    "tags": [
+      "southwest-colorado",
+      "uncrowded",
+      "family",
+      "affordable",
+      "durango"
+    ]
+  },
+  {
+    "name": "Sunlight Mountain",
+    "region": "Colorado",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 39.463,
+    "lng": -107.3498,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.sunlightmtn.com",
+    "tickets": "https://www.sunlightmtn.com/lift-tickets/",
+    "nearestAirport": "ASE",
+    "tags": [
+      "affordable",
+      "local",
+      "glenwood-springs",
+      "uncrowded",
+      "family"
+    ]
+  },
+  {
+    "name": "Brighton Resort",
+    "region": "Utah",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 40.5983,
+    "lng": -111.5832,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.brightonresort.com",
+    "tickets": "https://www.brightonresort.com/lift-tickets/",
+    "nearestAirport": "SLC",
+    "tags": [
+      "night-skiing",
+      "terrain-park",
+      "beginner-friendly",
+      "big-cottonwood",
+      "utah-powder"
+    ]
+  },
+  {
+    "name": "Solitude Mountain Resort",
+    "region": "Utah",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 40.6199,
+    "lng": -111.5916,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.skisolitude.com",
+    "tickets": "https://www.skisolitude.com/lift-tickets/",
+    "nearestAirport": "SLC",
+    "tags": [
+      "uncrowded",
+      "powder",
+      "big-cottonwood",
+      "hidden-gem",
+      "locals-favorite"
+    ]
+  },
+  {
+    "name": "Snowbasin",
+    "region": "Utah",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 41.216,
+    "lng": -111.857,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.snowbasin.com",
+    "tickets": "https://www.snowbasin.com/lift-tickets/",
+    "nearestAirport": "SLC",
+    "tags": [
+      "olympic-venue",
+      "uncrowded",
+      "luxury-lodges",
+      "powder",
+      "underrated"
+    ]
+  },
+  {
+    "name": "Brian Head Resort",
+    "region": "Utah",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 37.6952,
+    "lng": -112.8525,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.brianhead.com",
+    "tickets": "https://www.brianhead.com/lift-tickets/",
+    "nearestAirport": "LAS",
+    "tags": [
+      "southern-utah",
+      "accessible-from-las-vegas",
+      "family",
+      "affordable"
+    ]
+  },
+  {
+    "name": "Kirkwood Mountain Resort",
+    "region": "California / Lake Tahoe",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Epic",
+    "lat": 38.684,
+    "lng": -120.0651,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.kirkwood.com",
+    "tickets": "https://www.kirkwood.com/plan-your-trip/lift-tickets.aspx",
+    "nearestAirport": "RNO",
+    "tags": [
+      "highest-snowfall-tahoe",
+      "expert-terrain",
+      "off-piste",
+      "powder",
+      "uncrowded"
+    ]
+  },
+  {
+    "name": "Northstar California",
+    "region": "California / Lake Tahoe",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Epic",
+    "lat": 39.2743,
+    "lng": -120.1215,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.northstarcalifornia.com",
+    "tickets": "https://www.northstarcalifornia.com/plan-your-trip/lift-tickets.aspx",
+    "nearestAirport": "RNO",
+    "tags": [
+      "village",
+      "family",
+      "groomed",
+      "lake-tahoe",
+      "terrain-park"
+    ]
+  },
+  {
+    "name": "Sugar Bowl Resort",
+    "region": "California / Lake Tahoe",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 39.3007,
+    "lng": -120.3526,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.sugarbowl.com",
+    "tickets": "https://www.sugarbowl.com/lift-tickets/",
+    "nearestAirport": "RNO",
+    "tags": [
+      "historic",
+      "high-snowfall",
+      "independent",
+      "powder",
+      "locals-favorite"
+    ]
+  },
+  {
+    "name": "Sierra at Tahoe",
+    "region": "California / Lake Tahoe",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 38.7982,
+    "lng": -120.08,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.sierratahoeski.com",
+    "tickets": "https://www.sierratahoeski.com/lift-tickets/",
+    "nearestAirport": "RNO",
+    "tags": [
+      "affordable",
+      "tree-skiing",
+      "lake-tahoe",
+      "family",
+      "terrain-park"
+    ]
+  },
+  {
+    "name": "Grand Targhee",
+    "region": "Wyoming / Montana / Idaho",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 43.7888,
+    "lng": -110.9452,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.grandtarghee.com",
+    "tickets": "https://www.grandtarghee.com/lift-tickets/",
+    "nearestAirport": "JAC",
+    "tags": [
+      "deep-powder",
+      "uncrowded",
+      "teton-views",
+      "independent",
+      "authentic"
+    ]
+  },
+  {
+    "name": "Whitefish Mountain Resort",
+    "region": "Wyoming / Montana / Idaho",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 48.4835,
+    "lng": -114.3542,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.skiwhitefish.com",
+    "tickets": "https://www.skiwhitefish.com/lift-tickets/",
+    "nearestAirport": "FCA",
+    "tags": [
+      "charming-town",
+      "affordable",
+      "glacier-national-park",
+      "authentic",
+      "powder"
+    ]
+  },
+  {
+    "name": "Schweitzer Mountain",
+    "region": "Wyoming / Montana / Idaho",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 48.3681,
+    "lng": -116.6249,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.schweitzer.com",
+    "tickets": "https://www.schweitzer.com/lift-tickets/",
+    "nearestAirport": "GEG",
+    "tags": [
+      "hidden-gem",
+      "powder",
+      "uncrowded",
+      "idaho",
+      "lake-pend-oreille-views"
+    ]
+  },
+  {
+    "name": "Tamarack Resort",
+    "region": "Wyoming / Montana / Idaho",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 44.701,
+    "lng": -116.1071,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.tamarackidaho.com",
+    "tickets": "https://www.tamarackidaho.com/lift-tickets/",
+    "nearestAirport": "BOI",
+    "tags": [
+      "lake-cascade",
+      "family",
+      "idaho",
+      "uncrowded",
+      "four-season"
+    ]
+  },
+  {
+    "name": "Lookout Pass",
+    "region": "Wyoming / Montana / Idaho",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 47.4599,
+    "lng": -115.7024,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.skilookout.com",
+    "tickets": "https://www.skilookout.com/lift-tickets/",
+    "nearestAirport": "GEG",
+    "tags": [
+      "affordable",
+      "hidden-gem",
+      "idaho-montana-border",
+      "uncrowded",
+      "family"
+    ]
+  },
+  {
+    "name": "Stevens Pass",
+    "region": "Pacific Northwest (WA/OR)",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 47.7451,
+    "lng": -121.0887,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.stevenspass.com",
+    "tickets": "https://www.stevenspass.com/plan-your-trip/lift-tickets",
+    "nearestAirport": "SEA",
+    "tags": [
+      "pacific-northwest",
+      "powder",
+      "glades",
+      "accessible-from-seattle",
+      "locals-favorite"
+    ]
+  },
+  {
+    "name": "Mission Ridge",
+    "region": "Pacific Northwest (WA/OR)",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 47.2924,
+    "lng": -120.3968,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.missionridge.com",
+    "tickets": "https://www.missionridge.com/lift-tickets/",
+    "nearestAirport": "GEG",
+    "tags": [
+      "dry-powder",
+      "sunny",
+      "eastern-washington",
+      "uncrowded",
+      "affordable"
+    ]
+  },
+  {
+    "name": "Timberline Lodge",
+    "region": "Pacific Northwest (WA/OR)",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 45.3311,
+    "lng": -121.7113,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.timberlinelodge.com",
+    "tickets": "https://www.timberlinelodge.com/mountain/lift-tickets",
+    "nearestAirport": "PDX",
+    "tags": [
+      "year-round",
+      "historic-lodge",
+      "volcano",
+      "summer-skiing",
+      "iconic"
+    ]
+  },
+  {
+    "name": "Ski Bowl at Mt. Hood",
+    "region": "Pacific Northwest (WA/OR)",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 45.3147,
+    "lng": -121.7957,
+    "skillLevels": [
+      "beginner",
+      "intermediate"
+    ],
+    "website": "https://www.skibowl.com",
+    "tickets": "https://www.skibowl.com/winter/lift-tickets/",
+    "nearestAirport": "PDX",
+    "tags": [
+      "night-skiing",
+      "affordable",
+      "accessible-from-portland",
+      "family",
+      "terrain-park"
+    ]
+  },
+  {
+    "name": "Sugarbush Resort",
+    "region": "Vermont / New England",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 44.1342,
+    "lng": -72.9121,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.sugarbush.com",
+    "tickets": "https://www.sugarbush.com/lift-tickets/",
+    "nearestAirport": "BTV",
+    "tags": [
+      "vermont",
+      "glades",
+      "two-mountains",
+      "powder",
+      "charming-valley"
+    ]
+  },
+  {
+    "name": "Mad River Glen",
+    "region": "Vermont / New England",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 44.1901,
+    "lng": -72.9312,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.madriverglen.com",
+    "tickets": "https://www.madriverglen.com/ski-ride/lift-tickets/",
+    "nearestAirport": "BTV",
+    "tags": [
+      "ski-only",
+      "cooperative-owned",
+      "expert-terrain",
+      "authentic",
+      "single-chair"
+    ]
+  },
+  {
+    "name": "Whiteface Mountain",
+    "region": "Vermont / New England",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 44.3659,
+    "lng": -73.9028,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.whiteface.com",
+    "tickets": "https://www.whiteface.com/lift-tickets/",
+    "nearestAirport": "BTV",
+    "tags": [
+      "olympic-venue",
+      "lake-placid",
+      "highest-vertical-east",
+      "new-york",
+      "iconic"
+    ]
+  },
+  {
+    "name": "Bretton Woods",
+    "region": "Vermont / New England",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 44.2629,
+    "lng": -71.4423,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.brettonwoods.com",
+    "tickets": "https://www.brettonwoods.com/lift-tickets/",
+    "nearestAirport": "BOS",
+    "tags": [
+      "largest-nh",
+      "family",
+      "mount-washington-views",
+      "new-hampshire",
+      "historic-hotel"
+    ]
+  },
+  {
+    "name": "Cannon Mountain",
+    "region": "Vermont / New England",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 44.1601,
+    "lng": -71.6992,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.cannonmt.com",
+    "tickets": "https://www.cannonmt.com/lift-tickets/",
+    "nearestAirport": "BOS",
+    "tags": [
+      "state-owned",
+      "affordable",
+      "new-hampshire",
+      "expert-terrain",
+      "franconia-notch"
+    ]
+  },
+  {
+    "name": "Sun Peaks Resort",
+    "region": "Canada - BC (Whistler / Revelstoke)",
+    "country": "Canada",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 50.8839,
+    "lng": -119.8894,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.sunpeaksresort.com",
+    "tickets": "https://www.sunpeaksresort.com/ski-ride/lift-tickets",
+    "nearestAirport": "YKA",
+    "tags": [
+      "second-largest-canada",
+      "village",
+      "family",
+      "uncrowded",
+      "british-columbia"
+    ]
+  },
+  {
+    "name": "RED Mountain Resort",
+    "region": "Canada - BC (Whistler / Revelstoke)",
+    "country": "Canada",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 49.1031,
+    "lng": -117.8205,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.redresort.com",
+    "tickets": "https://www.redresort.com/lift-tickets/",
+    "nearestAirport": "YCG",
+    "tags": [
+      "powder-highway",
+      "expert-terrain",
+      "authentic",
+      "uncrowded",
+      "rossland"
+    ]
+  },
+  {
+    "name": "Panorama Mountain Resort",
+    "region": "Canada - BC (Whistler / Revelstoke)",
+    "country": "Canada",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 50.4588,
+    "lng": -116.2362,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.panoramaresort.com",
+    "tickets": "https://www.panoramaresort.com/lift-tickets/",
+    "nearestAirport": "YXC",
+    "tags": [
+      "powder-highway",
+      "family",
+      "village",
+      "british-columbia",
+      "vertical"
+    ]
+  },
+  {
+    "name": "Whitewater Ski Resort",
+    "region": "Canada - BC (Whistler / Revelstoke)",
+    "country": "Canada",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 49.4721,
+    "lng": -117.2283,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.skiwhitewater.com",
+    "tickets": "https://www.skiwhitewater.com/lift-tickets/",
+    "nearestAirport": "YCG",
+    "tags": [
+      "deepest-snow-bc",
+      "powder",
+      "glades",
+      "locals-mountain",
+      "affordable"
+    ]
+  },
+  {
+    "name": "Marmot Basin (Jasper)",
+    "region": "Canada - Alberta (Banff / Lake Louise)",
+    "country": "Canada",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 52.8737,
+    "lng": -118.0827,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.skimarmot.com",
+    "tickets": "https://www.skimarmot.com/lift-tickets/",
+    "nearestAirport": "YEG",
+    "tags": [
+      "jasper-national-park",
+      "scenic",
+      "uncrowded",
+      "affordable",
+      "wildlife"
+    ]
+  },
+  {
+    "name": "Castle Mountain Resort",
+    "region": "Canada - Alberta (Banff / Lake Louise)",
+    "country": "Canada",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 49.3167,
+    "lng": -114.4167,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.skicastle.ca",
+    "tickets": "https://www.skicastle.ca/lift-tickets/",
+    "nearestAirport": "YYC",
+    "tags": [
+      "powder",
+      "hidden-gem",
+      "affordable",
+      "expert-terrain",
+      "alberta"
+    ]
+  },
+  {
+    "name": "Le Massif de Charlevoix",
+    "region": "Canada - Quebec (Tremblant)",
+    "country": "Canada",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 47.5886,
+    "lng": -70.6614,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.lemassif.com/en/",
+    "tickets": "https://www.lemassif.com/en/ski-tickets/",
+    "nearestAirport": "YQB",
+    "tags": [
+      "st-lawrence-river-views",
+      "vertical",
+      "quebec",
+      "scenic",
+      "french-culture"
+    ]
+  },
+  {
+    "name": "Stoneham Mountain Resort",
+    "region": "Canada - Quebec (Tremblant)",
+    "country": "Canada",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 47.0022,
+    "lng": -71.3617,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.ski-stoneham.com/en/",
+    "tickets": "https://www.ski-stoneham.com/en/lift-tickets/",
+    "nearestAirport": "YQB",
+    "tags": [
+      "night-skiing",
+      "terrain-park",
+      "quebec-city",
+      "accessible",
+      "family"
+    ]
+  },
+  {
+    "name": "Avoriaz / Portes du Soleil",
+    "region": "French Alps (Chamonix / Les 3 Vallées)",
+    "country": "France",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 46.192,
+    "lng": 6.7708,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.avoriaz.com/en/",
+    "tickets": "https://www.avoriaz.com/en/ski-passes/",
+    "nearestAirport": "GVA",
+    "tags": [
+      "car-free",
+      "portes-du-soleil",
+      "snowboard-culture",
+      "family",
+      "extensive-terrain"
+    ]
+  },
+  {
+    "name": "Megève",
+    "region": "French Alps (Chamonix / Les 3 Vallées)",
+    "country": "France",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 45.8567,
+    "lng": 6.617,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.megeve.com/en/",
+    "tickets": "https://www.megeve.com/en/ski-passes/",
+    "nearestAirport": "GVA",
+    "tags": [
+      "luxury",
+      "charming-village",
+      "mont-blanc-views",
+      "gourmet",
+      "family"
+    ]
+  },
+  {
+    "name": "La Plagne / Les Arcs (Paradiski)",
+    "region": "French Alps (Chamonix / Les 3 Vallées)",
+    "country": "France",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 45.5078,
+    "lng": 6.6758,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.la-plagne.com/en/",
+    "tickets": "https://www.la-plagne.com/en/ski-passes/",
+    "nearestAirport": "GVA",
+    "tags": [
+      "paradiski",
+      "second-largest-ski-area",
+      "glacier",
+      "family",
+      "extensive-terrain"
+    ]
+  },
+  {
+    "name": "Flaine",
+    "region": "French Alps (Chamonix / Les 3 Vallées)",
+    "country": "France",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 46.0,
+    "lng": 6.6833,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.flaine.com/en/",
+    "tickets": "https://www.flaine.com/en/ski-passes/",
+    "nearestAirport": "GVA",
+    "tags": [
+      "grand-massif",
+      "snow-sure",
+      "modern",
+      "affordable",
+      "speed-skiing"
+    ]
+  },
+  {
+    "name": "Saas-Fee",
+    "region": "Swiss Alps (Zermatt / St. Moritz / Verbier)",
+    "country": "Switzerland",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 46.1028,
+    "lng": 7.9286,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.saas-fee.ch/en/",
+    "tickets": "https://www.saas-fee.ch/en/ski-passes/",
+    "nearestAirport": "GVA",
+    "tags": [
+      "car-free",
+      "glacier",
+      "year-round",
+      "matterhorn-views",
+      "glacier-skiing"
+    ]
+  },
+  {
+    "name": "Laax / Flims",
+    "region": "Swiss Alps (Zermatt / St. Moritz / Verbier)",
+    "country": "Switzerland",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 46.8,
+    "lng": 9.25,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.laax.com/en/",
+    "tickets": "https://www.laax.com/en/ski-passes/",
+    "nearestAirport": "ZRH",
+    "tags": [
+      "terrain-park",
+      "halfpipe",
+      "snowboard-mecca",
+      "modern",
+      "graubunden"
+    ]
+  },
+  {
+    "name": "Crans-Montana",
+    "region": "Swiss Alps (Zermatt / St. Moritz / Verbier)",
+    "country": "Switzerland",
+    "continent": "Europe",
+    "passType": "Epic",
+    "lat": 46.3167,
+    "lng": 7.4833,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.crans-montana.ch/en/",
+    "tickets": "https://www.crans-montana.ch/en/ski-passes/",
+    "nearestAirport": "GVA",
+    "tags": [
+      "panoramic-views",
+      "sunny",
+      "world-cup-downhill",
+      "golf-in-summer",
+      "family"
+    ]
+  },
+  {
+    "name": "Lech Zürs am Arlberg",
+    "region": "Austrian Alps (Kitzbühel / Ischgl / Sölden)",
+    "country": "Austria",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 47.2083,
+    "lng": 10.1417,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.lech-zuers.at/en/",
+    "tickets": "https://www.lech-zuers.at/en/ski-passes/",
+    "nearestAirport": "INN",
+    "tags": [
+      "luxury",
+      "arlberg",
+      "powder",
+      "exclusive",
+      "royal-clientele"
+    ]
+  },
+  {
+    "name": "Zillertal Arena / Zell am Ziller",
+    "region": "Austrian Alps (Kitzbühel / Ischgl / Sölden)",
+    "country": "Austria",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 47.2333,
+    "lng": 11.8833,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.zillertalarena.com/en/",
+    "tickets": "https://www.zillertalarena.com/en/ski-passes/",
+    "nearestAirport": "INN",
+    "tags": [
+      "valley-skiing",
+      "family",
+      "affordable",
+      "extensive",
+      "austria"
+    ]
+  },
+  {
+    "name": "Schladming / Dachstein",
+    "region": "Austrian Alps (Kitzbühel / Ischgl / Sölden)",
+    "country": "Austria",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 47.3917,
+    "lng": 13.6833,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.schladming-dachstein.at/en/",
+    "tickets": "https://www.schladming-dachstein.at/en/ski-passes/",
+    "nearestAirport": "GRZ",
+    "tags": [
+      "world-cup",
+      "night-skiing",
+      "four-mountains",
+      "styria",
+      "affordable"
+    ]
+  },
+  {
+    "name": "Bad Gastein",
+    "region": "Austrian Alps (Kitzbühel / Ischgl / Sölden)",
+    "country": "Austria",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 47.1167,
+    "lng": 13.1333,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.gastein.com/en/",
+    "tickets": "https://www.gastein.com/en/ski-passes/",
+    "nearestAirport": "SZG",
+    "tags": [
+      "thermal-spas",
+      "belle-epoque",
+      "skiing-and-wellness",
+      "austrian-alps",
+      "historic"
+    ]
+  },
+  {
+    "name": "Sestriere / Via Lattea",
+    "region": "Italian Dolomites",
+    "country": "Italy",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 44.9583,
+    "lng": 6.8833,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.vialattea.it/en/",
+    "tickets": "https://www.vialattea.it/en/ski-passes/",
+    "nearestAirport": "TRN",
+    "tags": [
+      "olympic-venue",
+      "via-lattea",
+      "extensive-terrain",
+      "turin-accessible",
+      "affordable"
+    ]
+  },
+  {
+    "name": "Kronplatz (Plan de Corones)",
+    "region": "Italian Dolomites",
+    "country": "Italy",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 46.7333,
+    "lng": 11.95,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.kronplatz.com/en/",
+    "tickets": "https://www.kronplatz.com/en/ski-passes/",
+    "nearestAirport": "BZO",
+    "tags": [
+      "panoramic",
+      "south-tyrol",
+      "modern-lifts",
+      "dolomites",
+      "family"
+    ]
+  },
+  {
+    "name": "Cervinia / Zermatt (cross-border)",
+    "region": "Italian Dolomites",
+    "country": "Italy",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 45.9367,
+    "lng": 7.6333,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.cervinia.it/en/",
+    "tickets": "https://www.cervinia.it/en/ski-passes/",
+    "nearestAirport": "TRN",
+    "tags": [
+      "cross-border-italy-switzerland",
+      "glacier",
+      "matterhorn",
+      "high-altitude",
+      "long-season"
+    ]
+  },
+  {
+    "name": "Zugspitze / Garmisch-Partenkirchen",
+    "region": "Austrian Alps (Kitzbühel / Ischgl / Sölden)",
+    "country": "Germany",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 47.4211,
+    "lng": 10.9851,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.zugspitze.de/en/",
+    "tickets": "https://www.zugspitze.de/en/ski-tickets/",
+    "nearestAirport": "MUC",
+    "tags": [
+      "highest-peak-germany",
+      "glacier",
+      "olympic-venue",
+      "accessible-from-munich",
+      "iconic"
+    ]
+  },
+  {
+    "name": "Åre",
+    "region": "Swiss Alps (Zermatt / St. Moritz / Verbier)",
+    "country": "Sweden",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 63.3992,
+    "lng": 13.0815,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.skistar.com/en/are/",
+    "tickets": "https://www.skistar.com/en/are/lift-passes/",
+    "nearestAirport": "OSD",
+    "tags": [
+      "scandinavia",
+      "largest-sweden",
+      "lively",
+      "world-cup",
+      "northern-lights"
+    ]
+  },
+  {
+    "name": "APPI Resort",
+    "region": "Japan - Honshu (Hakuba / Zao)",
+    "country": "Japan",
+    "continent": "Asia",
+    "passType": "Ikon",
+    "lat": 39.9361,
+    "lng": 140.9458,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.appi.co.jp/en/",
+    "tickets": "https://www.appi.co.jp/en/lift-ticket/",
+    "nearestAirport": "HND",
+    "tags": [
+      "tohoku",
+      "powder",
+      "resort",
+      "ikon",
+      "uncrowded"
+    ]
+  },
+  {
+    "name": "Shiga Kogen",
+    "region": "Japan - Honshu (Hakuba / Zao)",
+    "country": "Japan",
+    "continent": "Asia",
+    "passType": "Ikon",
+    "lat": 36.7833,
+    "lng": 138.5,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.shigakogen-ski.gr.jp/english/",
+    "tickets": "https://www.shigakogen-ski.gr.jp/english/lift-tickets/",
+    "nearestAirport": "NRT",
+    "tags": [
+      "largest-ski-area-japan",
+      "18-interconnected-resorts",
+      "olympic-venue",
+      "powder",
+      "ikon"
+    ]
+  },
+  {
+    "name": "Aomori Spring",
+    "region": "Japan - Honshu (Hakuba / Zao)",
+    "country": "Japan",
+    "continent": "Asia",
+    "passType": "none",
+    "lat": 40.65,
+    "lng": 140.6833,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.aomori-spring.co.jp/en/",
+    "tickets": "https://www.aomori-spring.co.jp/en/lift-ticket/",
+    "nearestAirport": "AOJ",
+    "tags": [
+      "powder",
+      "tohoku",
+      "uncrowded",
+      "authentic",
+      "deep-snow"
+    ]
+  },
+  {
+    "name": "Tomamu",
+    "region": "Japan - Hokkaido (Niseko / Rusutsu / Furano)",
+    "country": "Japan",
+    "continent": "Asia",
+    "passType": "none",
+    "lat": 43.0167,
+    "lng": 142.5833,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.snowtomamu.jp/en/",
+    "tickets": "https://www.snowtomamu.jp/en/lift-ticket/",
+    "nearestAirport": "CTS",
+    "tags": [
+      "cloud-sea-terrace",
+      "resort-hotel",
+      "powder",
+      "unique-experience",
+      "ice-village"
+    ]
+  },
+  {
+    "name": "Farellones / El Coloradito",
+    "region": "Chile (Valle Nevado / Portillo)",
+    "country": "Chile",
+    "continent": "South America",
+    "passType": "none",
+    "lat": -33.35,
+    "lng": -70.2833,
+    "skillLevels": [
+      "beginner",
+      "intermediate"
+    ],
+    "website": "https://www.farellones.cl",
+    "tickets": "https://www.farellones.cl/ski-passes/",
+    "nearestAirport": "SCL",
+    "tags": [
+      "santiago-accessible",
+      "budget-friendly",
+      "beginner",
+      "andes",
+      "day-trip"
+    ]
+  },
+  {
+    "name": "Nevados de Chillán",
+    "region": "Chile (Valle Nevado / Portillo)",
+    "country": "Chile",
+    "continent": "South America",
+    "passType": "none",
+    "lat": -36.9,
+    "lng": -71.4333,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.nevadosdechillan.com/en/",
+    "tickets": "https://www.nevadosdechillan.com/en/ski-passes/",
+    "nearestAirport": "CCP",
+    "tags": [
+      "thermal-pools",
+      "volcano",
+      "powder",
+      "southern-hemisphere",
+      "unique"
+    ]
+  },
+  {
+    "name": "Cerro Bayo",
+    "region": "Argentina (Las Leñas / Bariloche)",
+    "country": "Argentina",
+    "continent": "South America",
+    "passType": "none",
+    "lat": -40.7167,
+    "lng": -71.5333,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.cerrobayo.com.ar/en/",
+    "tickets": "https://www.cerrobayo.com.ar/en/ski-passes/",
+    "nearestAirport": "NQN",
+    "tags": [
+      "lake-views",
+      "villa-la-angostura",
+      "patagonia",
+      "uncrowded",
+      "southern-hemisphere"
+    ]
+  },
+  {
+    "name": "Ohau Snow Fields",
+    "region": "New Zealand (Queenstown / Wanaka)",
+    "country": "New Zealand",
+    "continent": "Oceania",
+    "passType": "none",
+    "lat": -44.2333,
+    "lng": 169.85,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.ohau.co.nz",
+    "tickets": "https://www.ohau.co.nz/ski-passes/",
+    "nearestAirport": "ZQN",
+    "tags": [
+      "hidden-gem",
+      "lake-ohau-views",
+      "uncrowded",
+      "southern-hemisphere",
+      "affordable"
+    ]
+  },
+  {
+    "name": "Mt. Ruapehu (Whakapapa / Turoa)",
+    "region": "New Zealand (Queenstown / Wanaka)",
+    "country": "New Zealand",
+    "continent": "Oceania",
+    "passType": "none",
+    "lat": -39.2833,
+    "lng": 175.5667,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.mtruapehu.com",
+    "tickets": "https://www.mtruapehu.com/ski-passes/",
+    "nearestAirport": "WLG",
+    "tags": [
+      "active-volcano",
+      "north-island",
+      "two-fields",
+      "unique",
+      "lord-of-the-rings"
+    ]
+  },
+  {
+    "name": "Charlotte Pass",
+    "region": "Australia",
+    "country": "Australia",
+    "continent": "Oceania",
+    "passType": "none",
+    "lat": -36.4333,
+    "lng": 148.3333,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.charlottepass.com.au",
+    "tickets": "https://www.charlottepass.com.au/lift-tickets/",
+    "nearestAirport": "CBR",
+    "tags": [
+      "australias-highest-resort",
+      "remote",
+      "snow-sure",
+      "historic",
+      "southern-hemisphere"
+    ]
+  },
+  {
+    "name": "Buller Ski Lifts (Mt. Buller)",
+    "region": "Australia",
+    "country": "Australia",
+    "continent": "Oceania",
+    "passType": "none",
+    "lat": -37.15,
+    "lng": 146.4333,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.mtbuller.com.au",
+    "tickets": "https://www.mtbuller.com.au/lift-tickets/",
+    "nearestAirport": "MEL",
+    "tags": [
+      "largest-victoria",
+      "accessible-from-melbourne",
+      "village",
+      "family",
+      "southern-hemisphere"
+    ]
+  },
+  {
+    "name": "Snowmass",
+    "region": "Colorado",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 39.2086,
+    "lng": -106.949,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.aspensnowmass.com/our-mountains/snowmass",
+    "tickets": "https://www.aspensnowmass.com/plan-your-trip/lift-tickets",
+    "nearestAirport": "ASE",
+    "tags": [
+      "largest-aspen-mountain",
+      "village",
+      "family",
+      "terrain-variety",
+      "ikon"
+    ]
+  },
+  {
+    "name": "Eldora Mountain Resort",
+    "region": "Colorado",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 39.9371,
+    "lng": -105.5824,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.eldora.com",
+    "tickets": "https://www.eldora.com/lift-tickets/",
+    "nearestAirport": "DEN",
+    "tags": [
+      "closest-to-denver",
+      "locals-favorite",
+      "affordable",
+      "accessible",
+      "family"
+    ]
+  },
+  {
+    "name": "Snow King Mountain",
+    "region": "Wyoming / Montana / Idaho",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "none",
+    "lat": 43.4744,
+    "lng": -110.7624,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.snowkingmountain.com",
+    "tickets": "https://www.snowkingmountain.com/lift-tickets/",
+    "nearestAirport": "JAC",
+    "tags": [
+      "town-hill",
+      "jackson-wyoming",
+      "affordable",
+      "night-skiing",
+      "locals"
+    ]
+  },
+  {
+    "name": "Boyne Mountain",
+    "region": "Vermont / New England",
+    "country": "USA",
+    "continent": "North America",
+    "passType": "Ikon",
+    "lat": 45.1728,
+    "lng": -84.9211,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.boynemountain.com",
+    "tickets": "https://www.boynemountain.com/lift-tickets/",
+    "nearestAirport": "DTW",
+    "tags": [
+      "michigan",
+      "midwest",
+      "family",
+      "four-season",
+      "accessible"
+    ]
+  },
+  {
+    "name": "Les Deux Alpes",
+    "region": "French Alps (Chamonix / Les 3 Vallées)",
+    "country": "France",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 45.0139,
+    "lng": 6.12,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.les2alpes.com/en/",
+    "tickets": "https://www.les2alpes.com/en/ski-passes/",
+    "nearestAirport": "GNB",
+    "tags": [
+      "glacier",
+      "summer-skiing",
+      "terrain-park",
+      "lively",
+      "french-alps"
+    ]
+  },
+  {
+    "name": "Obertauern",
+    "region": "Austrian Alps (Kitzbühel / Ischgl / Sölden)",
+    "country": "Austria",
+    "continent": "Europe",
+    "passType": "none",
+    "lat": 47.25,
+    "lng": 13.5667,
+    "skillLevels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "website": "https://www.obertauern.com/en/",
+    "tickets": "https://www.obertauern.com/en/ski-passes/",
+    "nearestAirport": "SZG",
+    "tags": [
+      "snow-guaranteed",
+      "circular-ski-route",
+      "salzburg-region",
+      "family",
+      "austria"
+    ]
+  },
+  {
+    "name": "Niseko Hanazono",
+    "region": "Japan - Hokkaido (Niseko / Rusutsu / Furano)",
+    "country": "Japan",
+    "continent": "Asia",
+    "passType": "Ikon",
+    "lat": 42.8167,
+    "lng": 140.7167,
+    "skillLevels": [
+      "intermediate",
+      "advanced",
+      "expert"
+    ],
+    "website": "https://www.hanazononiseko.com/en/",
+    "tickets": "https://www.hanazononiseko.com/en/lift-tickets/",
+    "nearestAirport": "CTS",
+    "tags": [
+      "niseko-united",
+      "powder",
+      "tree-skiing",
+      "japow",
+      "backcountry-access"
+    ]
   }
 ]
