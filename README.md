@@ -2,6 +2,12 @@
 
 An AI-powered ski trip planning web application that generates personalized trip recommendations based on your budget, dates, skill level, and preferences. Built with React, Node.js/Express, the Anthropic Claude API, Mapbox GL, and Supabase.
 
+LIVE URL: https://ski-trip-planner-ebon.vercel.app/trips
+
+### NOTE:
+The backend is hosted on Render to keep costs realistic, if it is inactive for more than 15 minutes it will spin down.
+If the front end loads but you can't generate a trip, give it a minute or two the backend is simply starting up.
+
 ---
 
 ## Features
