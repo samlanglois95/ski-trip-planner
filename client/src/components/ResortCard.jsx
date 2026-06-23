@@ -45,7 +45,11 @@ export default function ResortCard({ resort, rank }) {
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs text-slate-500 uppercase tracking-wider">Lift Ticket</span>
             <span className="text-sm font-bold text-white bg-slate-700/60 px-2.5 py-0.5 rounded-full">
-              ${resort.estimatedLiftTicket}/day
+              {resort.estimatedLiftTicket > 0
+                ? `$${resort.estimatedLiftTicket}/day`
+                : resort.passType === 'Ikon' || resort.passType === 'Epic'
+                ? `On ${resort.passType} Pass`
+                : '—'}
             </span>
           </div>
           <div className="flex gap-2">
