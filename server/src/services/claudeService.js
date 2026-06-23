@@ -139,29 +139,53 @@ Return ONLY valid JSON in this exact structure, no extra text:
 }
   `
 
-  const response = await axios.post(
-    'https://api.anthropic.com/v1/messages',
-    {
-      model: 'claude-sonnet-4-6',
-      max_tokens: 4000,
-      messages: [{ role: 'user', content: prompt }]
-    },
-    {
-      headers: {
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json'
+  let response
+  try {
+    response = await axios.post(
+      'https://api.anthropic.com/v1/messages',
+      {
+        model: 'claude-sonnet-4-6',
+        max_tokens: 4000,
+        messages: [{ role: 'user', content: prompt }]
+      },
+      {
+        timeout: 60000,
+        headers: {
+          'x-api-key': process.env.ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+          'content-type': 'application/json'
+        }
       }
-    }
-  )
+    )
+  } catch (err) {
+    const status = err.response?.status
+    console.error('Claude API error:', status, err.response?.data || err.message)
+    const busy = status === 429 || status === 529
+    const e = new Error(
+      busy
+        ? 'The trip planner is busy right now — give it a moment and try again.'
+        : 'Could not reach the trip planner. Please try again in a moment.'
+    )
+    e.statusCode = busy ? 503 : 502
+    throw e
+  }
 
-  const text = response.data.content[0].text
-  const cleaned = text.replace(/```json|```/g, '').trim()
+  // The first content block isn't guaranteed to be text (e.g. refusals), so
+  // find the text block instead of assuming content[0].
+  const block = response.data?.content?.find(b => b.type === 'text')
+  if (!block?.text) {
+    const e = new Error('The trip planner returned an empty response. Please try again.')
+    e.statusCode = 502
+    throw e
+  }
+  const cleaned = block.text.replace(/```json|```/g, '').trim()
 
   try {
     return JSON.parse(cleaned)
   } catch (err) {
-    console.error('Failed to parse Claude response as JSON:', cleaned)
-    throw new Error('Claude returned malformed JSON. Try again or reduce response complexity.')
+    console.error('Failed to parse Claude response as JSON:', cleaned.slice(0, 500))
+    const e = new Error('The trip planner returned an unexpected format. Please try again.')
+    e.statusCode = 502
+    throw e
   }
 }
