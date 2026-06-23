@@ -1,5 +1,13 @@
 import { buildTripPlan } from '../services/claudeService.js'
-import { saveTrip, getAllTrips, getTripById, deleteTrip } from '../services/tripStorageService.js'
+import {
+  saveTrip,
+  getAllTrips,
+  getTripById,
+  deleteTrip,
+  createShareLink,
+  revokeShareLink,
+  getSharedTrip
+} from '../services/tripStorageService.js'
 
 export async function generateTripPlan(req, res) {
   try {
@@ -49,5 +57,39 @@ export async function removeTrip(req, res) {
   } catch (error) {
     console.error('Delete trip error:', error)
     res.status(500).json({ success: false, error: error.message })
+  }
+}
+
+export async function shareTrip(req, res) {
+  try {
+    const shareId = await createShareLink(req.params.id, req.user.id)
+    res.json({ success: true, data: { shareId } })
+  } catch (error) {
+    console.error('Share trip error:', error)
+    res.status(500).json({ success: false, error: 'Could not create share link' })
+  }
+}
+
+export async function unshareTrip(req, res) {
+  try {
+    await revokeShareLink(req.params.id, req.user.id)
+    res.json({ success: true })
+  } catch (error) {
+    console.error('Unshare trip error:', error)
+    res.status(500).json({ success: false, error: 'Could not revoke share link' })
+  }
+}
+
+// Public — no auth. Returns a shared trip by its token, or 404.
+export async function viewSharedTrip(req, res) {
+  try {
+    const { shareId } = req.params
+    if (!shareId || typeof shareId !== 'string') {
+      return res.status(400).json({ success: false, error: 'Invalid share link' })
+    }
+    const trip = await getSharedTrip(shareId)
+    res.json({ success: true, data: trip })
+  } catch (error) {
+    res.status(404).json({ success: false, error: 'Trip not found' })
   }
 }

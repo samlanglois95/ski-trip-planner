@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Results from './pages/Results'
 import Trips from './pages/Trips'
 import LoginPage from './pages/LoginPage'
+import SharedTrip from './pages/SharedTrip'
 import Navbar from './components/Navbar'
 
 function ProtectedRoute({ children }) {
@@ -21,6 +22,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/shared/:shareId" element={<SharedTrip />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/trips" element={
           <ProtectedRoute><Trips /></ProtectedRoute>

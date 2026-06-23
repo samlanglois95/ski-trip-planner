@@ -7,14 +7,20 @@ import {
   saveTripPlan,
   listTrips,
   getTrip,
-  removeTrip
+  removeTrip,
+  shareTrip,
+  unshareTrip,
+  viewSharedTrip
 } from '../controllers/tripController.js'
 
 const router = Router()
 
 router.post('/generate', generateLimiter, validateTripInputs, generateTripPlan)
+router.get('/shared/:shareId', viewSharedTrip)                      // public — open a shared trip link
 router.post('/save', requireAuth, saveTripPlan)
 router.get('/all', requireAuth, listTrips)
+router.post('/:id/share', requireAuth, shareTrip)
+router.delete('/:id/share', requireAuth, unshareTrip)
 router.get('/:id', requireAuth, getTrip)
 router.delete('/:id', requireAuth, removeTrip)
 

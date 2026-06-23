@@ -12,7 +12,9 @@ If the front end loads but you can't generate a trip, give it a minute or two th
 
 ## Features
 
-- **AI Trip Generation** — Claude AI analyzes your inputs and returns a fully structured trip plan including resort recommendations, budget breakdown, flight search links, lodging options, rental car links, packing tips, and booking strategy
+- **AI Trip Generation** — Claude AI analyzes your inputs and returns a fully structured trip plan including resort recommendations, a day-by-day itinerary, budget breakdown, flight search links, lodging options, rental car links, and booking strategy
+- **Day-by-Day Itinerary** — every plan includes a travel → ski → rest/explore → departure timeline sized to your dates, with concrete logistics (airport, rental car, drive times, lift tickets, après)
+- **Trip Sharing** — generate an unguessable public link for any saved trip and send it by email or text; friends open it with no account required
 - **Interactive Map** — Mapbox GL visualization showing recommended resort pins colored by pass type (Ikon/Epic), departure airport marker, destination airport marker, and a dashed flight arc between them
 - **Global Resort Database** — 150+ resorts across 6 continents including North America, Europe, Japan, South Korea, China, South America, New Zealand, and Australia — with Ikon, Epic, and independent resort coverage
 - **Smart Budget Planning** — Enter budget as a total or per-person amount with live calculation showing the equivalent in the other format
@@ -94,11 +96,19 @@ create table trips (
   inputs jsonb not null,
   plan jsonb not null,
   trip_name text,
+  share_id text unique,   -- public share token, null until the trip is shared
   user_id uuid
 );
 
 -- Index for fast per-user lookups
 create index if not exists idx_trips_user_id on trips (user_id);
+
+-- Index for fast public share-link lookups
+create index if not exists idx_trips_share_id on trips (share_id);
+
+-- Already have a trips table from before sharing was added? Run instead:
+--   alter table trips add column if not exists share_id text unique;
+--   create index if not exists idx_trips_share_id on trips (share_id);
 
 -- Enable Row Level Security
 alter table trips enable row level security;
@@ -230,7 +240,7 @@ ski-trip-planner/
 - [ ] Deploy to Vercel (frontend) + Render (backend)
 - [ ] Snow condition integration (live resort snow reports)
 - [ ] Expand to general travel (beach, city, adventure trips)
-- [ ] Trip sharing via public link
+- [x] Trip sharing via public link
 - [ ] Side panel on map hover showing resort details
 - [ ] Mobile-optimized layout pass
 - [ ] Error boundary components for resilient rendering
@@ -238,6 +248,11 @@ ski-trip-planner/
 ---
 
 ## Work Log
+
+### June 23, 2026
+- Added **trip sharing** — unguessable public links you can send by email or text; opens with no account
+- Upgraded the day-by-day itinerary into a typed timeline (travel / ski / rest / explore / departure) and wired the previously-ignored "extras" form field into the prompt
+- Added `trust proxy` so IP rate limiting can't be bypassed, and fixed an XSS sink in the map popups (untrusted AI output was flowing through innerHTML)
 
 ### June 22, 2026
 - Added security featues: Rate limiting to prevent token overuse as well as a limit on the # of accounts
