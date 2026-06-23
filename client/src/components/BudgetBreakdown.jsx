@@ -31,7 +31,7 @@ export default function BudgetBreakdown({ budget }) {
 
       <div className="space-y-3">
         {entries.map(([key, value]) => {
-          const pct = Math.round((value / total) * 100)
+          const pct = total > 0 ? Math.min(100, Math.round((value / total) * 100)) : 0
           return (
             <div key={key}>
               <div className="flex justify-between text-sm mb-1.5">
