@@ -201,22 +201,34 @@ export default function Results() {
           </SectionCard>
         )}
 
-        {/* Packing Tips */}
-        {plan.packingTips && (
-          <SectionCard delay={0.35}>
-            <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-4 rounded-full bg-blue-500 shrink-0" />
-              Packing Tips
-            </h3>
-            <ul className="space-y-2">
-              {plan.packingTips.map((tip, i) => (
-                <li key={i} className="text-sm text-slate-300 flex gap-2">
-                  <span className="text-blue-400 shrink-0">•</span>
-                  <span>{tip}</span>
-                </li>
+        {/* Itinerary */}
+        {plan.itinerary && plan.itinerary.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-lg font-semibold text-white mb-4">Day-by-Day Itinerary</h2>
+            <div className="space-y-3">
+              {plan.itinerary.map((day, i) => (
+                <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
+                      <span className="text-blue-400 font-bold text-sm">{day.day}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-semibold mb-1">{day.title}</h3>
+                      <p className="text-slate-400 text-sm mb-3">{day.description}</p>
+                      <ul className="space-y-1.5">
+                        {day.activities?.map((activity, j) => (
+                          <li key={j} className="text-sm text-slate-300 flex gap-2">
+                            <span className="text-blue-400 mt-0.5">→</span>
+                            <span>{activity}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </ul>
-          </SectionCard>
+            </div>
+          </div>
         )}
 
       </div>

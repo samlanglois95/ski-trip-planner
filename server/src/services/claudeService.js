@@ -22,6 +22,9 @@ CRITICAL FORMATTING RULES:
 - nearestAirport must be ONLY a 3-letter IATA code (e.g. "SLC"). No extra text.
 - notes in budgetBreakdown must always be a plain string, never an object.
 - topResorts must contain EXACTLY 3 resort recommendations, no more, no less.
+- itinerary must have one entry per day of the trip, covering arrival through departure.
+- Each itinerary day must have a "day" number, "title", "description", and "activities" array of 3-5 specific actionable items.
+- itinerary activities should be specific to the recommended resorts and region, not generic.
 - Return ONLY valid JSON, no extra text, no markdown fences.
 
 USER INPUTS:
@@ -76,7 +79,20 @@ Return ONLY valid JSON in this exact structure, no extra text:
     "total": 1650,
     "notes": "A single string with budget tips and caveats. Must be a plain string, never an object."
   },
-  "packingTips": ["tip1", "tip2"],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Arrival Day",
+      "description": "Brief overview of the day",
+      "activities": ["Pick up rental car at SLC", "Drive to resort (~45 min)", "Check into lodging", "Explore the village and grab dinner"]
+    },
+    {
+      "day": 2,
+      "title": "First Day on the Mountain",
+      "description": "Brief overview of the day",
+      "activities": ["Morning warm-up on groomed blues", "Ski school lesson if beginner", "Afternoon powder runs", "Après-ski at the lodge"]
+    }
+  ],
   "bestTimeToBook": "Book flights 6-8 weeks out for best prices"
 }
   `
