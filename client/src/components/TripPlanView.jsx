@@ -3,6 +3,9 @@ import BudgetBreakdown from './BudgetBreakdown'
 import LinksList from './LinksList'
 import MapView from './MapView'
 import Itinerary from './Itinerary'
+import PassAdvice from './PassAdvice'
+import SnowReport from './SnowReport'
+import { buildItineraryICS, downloadICS } from '../lib/calendar'
 
 function SectionCard({ children, delay = 0, className = '' }) {
   return (
@@ -65,17 +68,44 @@ export default function TripPlanView({ plan }) {
         </div>
       </SectionCard>
 
+      {/* Pass advice (renders nothing if no single pass helps) */}
+      <PassAdvice recommendation={plan.passRecommendation} />
+
+      {/* Live snow */}
+      {plan.topResorts?.length > 0 && (
+        <SectionCard delay={0.16}>
+          <SectionHeading>Current Snow</SectionHeading>
+          <SnowReport resorts={plan.topResorts} />
+        </SectionCard>
+      )}
+
       {/* Day-by-day itinerary */}
       {plan.itinerary?.length > 0 && (
         <SectionCard delay={0.18}>
-          <SectionHeading>Day-by-Day Itinerary</SectionHeading>
+          <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+            <h2 className="text-lg font-semibold text-white flex items-center gap-2.5">
+              <span className="w-1.5 h-5 rounded-full bg-blue-500 shrink-0" />
+              Day-by-Day Itinerary
+            </h2>
+            {plan.startDate && (
+              <button
+                onClick={() => {
+                  const ics = buildItineraryICS(plan.itinerary, plan.startDate, plan.topResorts?.[0]?.region || 'Ski Trip')
+                  if (ics) downloadICS('ski-trip.ics', ics)
+                }}
+                className="text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 text-white transition"
+              >
+                Add to Calendar
+              </button>
+            )}
+          </div>
           <Itinerary itinerary={plan.itinerary} />
         </SectionCard>
       )}
 
       {/* Budget + Links */}
       <div className="grid md:grid-cols-2 gap-6 fade-in-up" style={{ animationDelay: '0.2s' }}>
-        <BudgetBreakdown budget={plan.budgetBreakdown} />
+        <BudgetBreakdown budget={plan.budgetBreakdown} groupSize={plan.groupSize} />
         <div className="space-y-4">
           <SectionCard delay={0.22}>
             <LinksList

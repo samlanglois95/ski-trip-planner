@@ -16,11 +16,13 @@ const COLORS = {
   skiRentalsAndLessons: 'bg-green-500',
 }
 
-export default function BudgetBreakdown({ budget }) {
+export default function BudgetBreakdown({ budget, groupSize }) {
   if (!budget) return null
 
   const { total, notes, ...categories } = budget
   const entries = Object.entries(categories).filter(([key]) => LABELS[key])
+  const people = Number(groupSize) || 1
+  const perPerson = (v) => `$${Math.round((Number(v) || 0) / people).toLocaleString()}`
 
   return (
     <div className="bg-slate-800/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
@@ -36,7 +38,10 @@ export default function BudgetBreakdown({ budget }) {
             <div key={key}>
               <div className="flex justify-between text-sm mb-1.5">
                 <span className="text-slate-300">{LABELS[key]}</span>
-                <span className="text-white font-medium">${value.toLocaleString()}</span>
+                <span className="text-white font-medium">
+                  ${value.toLocaleString()}
+                  {people > 1 && <span className="text-slate-500 font-normal"> · {perPerson(value)}/person</span>}
+                </span>
               </div>
               <div className="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
                 <div className={`h-full rounded-full ${COLORS[key] ?? 'bg-blue-500'}`} style={{ width: `${pct}%` }} />
@@ -48,7 +53,12 @@ export default function BudgetBreakdown({ budget }) {
 
       <div className="flex justify-between items-center mt-5 pt-4 border-t border-slate-700/50">
         <span className="text-slate-300 font-medium">Total</span>
-        <span className="text-xl font-bold text-white">${total?.toLocaleString()}</span>
+        <div className="text-right">
+          <div className="text-xl font-bold text-white">${total?.toLocaleString()}</div>
+          {people > 1 && total > 0 && (
+            <div className="text-xs text-blue-300 font-medium">{perPerson(total)}/person · split {people} ways</div>
+          )}
+        </div>
       </div>
 
       {notes && typeof notes === 'string' && (
