@@ -68,6 +68,7 @@ CRITICAL FORMATTING RULES:
 - gettingThere: 3-6 concrete steps getting from the user's departure location to the resort area — flights, then airport transfers (buses/trains/shuttles) with approximate cost and travel time. Be specific to the destination.
 - essentials: 6-10 practical "know before you go" items SPECIFIC to the destination country — passport/visa rules for a US traveler, money & ATMs, SIM/eSIM/wifi, power plug type, key local etiquette (e.g. onsen rules in Japan), and any transport passes worth buying.
 - foodAndDrink: 4-8 specific recommended spots near the recommended resorts (restaurants, izakaya/local eats, bars, après-ski) — each with a short why. Use real, well-known venues where possible.
+- snowReport: for EACH recommended resort, give its typical AVERAGE ANNUAL snowfall as a number in centimeters (avgAnnualSnowfallCm), a readable label (avgAnnualSnowfallLabel, e.g. "14 m / 550 in"), and a one-line "note" about the snow during the trip's month — accurate but enticing, based on the resort's real reputation.
 
 USER INPUTS:
 - Budget: $${totalBudget} total ($${perPersonBudget} per person) for ${groupSize} people
@@ -162,6 +163,14 @@ Return ONLY valid JSON in this exact structure, no extra text:
   "foodAndDrink": [
     "A specific restaurant/izakaya near the resort — one-line why",
     "A bar or après-ski spot — one-line why"
+  ],
+  "snowReport": [
+    {
+      "resort": "Niseko United",
+      "avgAnnualSnowfallCm": 1400,
+      "avgAnnualSnowfallLabel": "14 m / 550 in",
+      "note": "February is peak powder — famously light, dry 'Japow' with near-daily refills."
+    }
   ]
 }
   `

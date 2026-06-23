@@ -71,11 +71,11 @@ export default function TripPlanView({ plan }) {
       {/* Pass advice (renders nothing if no single pass helps) */}
       <PassAdvice recommendation={plan.passRecommendation} />
 
-      {/* Live snow */}
-      {plan.topResorts?.length > 0 && (
+      {/* Average snowfall */}
+      {plan.snowReport?.length > 0 && (
         <SectionCard delay={0.16}>
-          <SectionHeading>Current Snow</SectionHeading>
-          <SnowReport resorts={plan.topResorts} />
+          <SectionHeading>Average Snowfall</SectionHeading>
+          <SnowReport snowReport={plan.snowReport} />
         </SectionCard>
       )}
 
