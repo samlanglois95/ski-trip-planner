@@ -14,7 +14,7 @@ export default function Home() {
     setError(null)
     try {
       const res = await api.post('/api/trip/generate', formData)
-      navigate('/results', { state: { plan: res.data.data, inputs: formData } })
+      navigate('/results', { state: { plan: res.data.data, inputs: formData, autosave: true } })
     } catch (err) {
       setError('Something went wrong generating your trip. Check that your backend is running.')
       console.error(err)
