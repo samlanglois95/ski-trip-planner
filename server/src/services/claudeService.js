@@ -234,6 +234,18 @@ Return ONLY valid JSON in this exact structure, no extra text:
   plan.startDate = startDate
   plan.endDate = endDate
 
+  // Backstop the USD instruction: the model sometimes still returns the lift
+  // ticket in local currency (e.g. ¥8500), which renders as "$8500/day". No
+  // real USD day ticket exceeds ~$350, so treat an out-of-range value as
+  // untrustworthy and drop it to 0 — the resort card then shows "On <pass>
+  // Pass" (or "—") instead of a bogus price.
+  if (Array.isArray(plan.topResorts)) {
+    for (const r of plan.topResorts) {
+      const t = Number(r.estimatedLiftTicket)
+      r.estimatedLiftTicket = Number.isFinite(t) && t >= 0 && t <= 350 ? t : 0
+    }
+  }
+
   // Replace the model's booking URLs with deterministic, date-aware links built
   // from the real inputs, so flights / lodging / rental car always resolve and
   // land on the correct dates + guest count. (Lift-ticket links stay the
