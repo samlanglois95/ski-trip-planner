@@ -3,7 +3,8 @@ import { supabase } from './supabase'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  timeout: 180000, // 3 minutes — long enough for a cold start + Claude response
+  timeout: 250000, // must stay above the server's 240s Claude timeout so the
+  // client never aborts before the server can respond (cold start + generation)
 })
 
 api.interceptors.request.use(async (config) => {
