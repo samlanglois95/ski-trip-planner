@@ -12,6 +12,7 @@ export default function Results() {
   const [saved, setSaved] = useState(!!location.state?.savedTripId)
   const [saveError, setSaveError] = useState(null)
   const [savedTripId, setSavedTripId] = useState(location.state?.savedTripId || null)
+  const [shareId, setShareId] = useState(location.state?.shareId || null)
   const [sharing, setSharing] = useState(false)
   const [shareUrl, setShareUrl] = useState(null)
   const [shareError, setShareError] = useState(null)
@@ -60,8 +61,9 @@ export default function Results() {
     try {
       const id = await ensureSaved()
       const res = await api.post(`/api/trip/${id}/share`)
-      const { shareId } = res.data.data
-      setShareUrl(`${window.location.origin}/shared/${shareId}`)
+      const { shareId: newShareId } = res.data.data
+      setShareId(newShareId)
+      setShareUrl(`${window.location.origin}/shared/${newShareId}`)
     } catch (err) {
       setShareError('Could not create a share link. Try again.')
       console.error(err)
@@ -166,7 +168,7 @@ export default function Results() {
         </div>
       </div>
 
-      <TripPlanView plan={plan} />
+      <TripPlanView plan={plan} shareId={shareId} />
 
       {shareUrl && (
         <ShareTripModal

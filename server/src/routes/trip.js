@@ -1,7 +1,8 @@
 import { Router } from 'express'
 import { requireAuth } from '../middleware/auth.js'
-import { generateLimiter } from '../middleware/rateLimiter.js'
+import { generateLimiter, commentLimiter } from '../middleware/rateLimiter.js'
 import { validateTripInputs } from '../middleware/validateTrip.js'
+import { validateComment } from '../middleware/validateComment.js'
 import {
   generateTripPlan,
   saveTripPlan,
@@ -10,13 +11,17 @@ import {
   removeTrip,
   shareTrip,
   unshareTrip,
-  viewSharedTrip
+  viewSharedTrip,
+  listComments,
+  postComment
 } from '../controllers/tripController.js'
 
 const router = Router()
 
 router.post('/generate', generateLimiter, validateTripInputs, generateTripPlan)
 router.get('/shared/:shareId', viewSharedTrip)                      // public — open a shared trip link
+router.get('/shared/:shareId/comments', listComments)              // public — read trip comments
+router.post('/shared/:shareId/comments', commentLimiter, validateComment, postComment) // public — add a comment
 router.post('/save', requireAuth, saveTripPlan)
 router.get('/all', requireAuth, listTrips)
 router.post('/:id/share', requireAuth, shareTrip)

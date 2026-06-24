@@ -39,7 +39,7 @@ export default function Trips() {
   }
 
   function handleView(trip) {
-    navigate('/results', { state: { plan: trip.plan, inputs: trip.inputs, savedTripId: trip.id } })
+    navigate('/results', { state: { plan: trip.plan, inputs: trip.inputs, savedTripId: trip.id, shareId: trip.share_id || null } })
   }
 
   function formatDate(dateStr) {

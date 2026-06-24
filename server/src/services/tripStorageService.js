@@ -96,3 +96,40 @@ export async function getSharedTrip(shareId) {
   if (error) throw new Error('Trip not found')
   return data
 }
+
+// Resolve a public share token to its trip id (or throw). Comments are keyed by
+// trip_id — not share_id — so they survive a trip being re-shared, and so a
+// caller can only reach a trip that actually has a live share link.
+export async function resolveShareId(shareId) {
+  const { data, error } = await supabaseAdmin
+    .from('trips')
+    .select('id')
+    .eq('share_id', shareId)
+    .single()
+
+  if (error || !data) throw new Error('Trip not found')
+  return data.id
+}
+
+// Public comments for a trip, oldest first.
+export async function getComments(tripId) {
+  const { data, error } = await supabaseAdmin
+    .from('comments')
+    .select('id, author, body, link, created_at')
+    .eq('trip_id', tripId)
+    .order('created_at', { ascending: true })
+
+  if (error) throw new Error(error.message)
+  return data
+}
+
+export async function addComment(tripId, { author, body, link }) {
+  const { data, error } = await supabaseAdmin
+    .from('comments')
+    .insert([{ trip_id: tripId, author, body, link }])
+    .select('id, author, body, link, created_at')
+    .single()
+
+  if (error) throw new Error(error.message)
+  return data
+}
