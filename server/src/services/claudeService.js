@@ -56,6 +56,7 @@ CRITICAL FORMATTING RULES:
 - departureAirport must be ONLY a 3-letter IATA code (e.g. "BOS"). No extra text.
 - nearestAirport must be ONLY a 3-letter IATA code (e.g. "SLC"). No extra text.
 - notes in budgetBreakdown must always be a plain string, never an object.
+- budgetBreakdown must reflect REALISTIC current-market costs for the whole group — never lowball, and anchor to the user's stated total budget. Real round-trip airfare per person is ~$200-500 US domestic and ~$900-2000 to Japan/Europe (up to ~$2800 in peak holiday weeks like late Dec / early Jan); lodging ~$150-500/night for a group place; food ~$50-100/person/day; lift tickets per the resort prices above (or ~$0 if a pass covers them). Each category is a TOTAL for the whole group for the whole trip, and "total" must equal their sum — a believable figure that uses a sensible share of the user's budget, not a tiny fraction of it.
 - topResorts must contain EXACTLY 3 resort recommendations, no more, no less.
 - itinerary must have one entry per day of the trip, covering arrival through departure.
 - Each itinerary day must have a "day" number, "title", a one-sentence "description", and an "activities" array of 3-4 specific actionable items.
@@ -254,7 +255,18 @@ Return ONLY valid JSON in this exact structure, no extra text:
       }
     }
 
-    const stayNear = plan.topResorts?.[0]?.name ||
+    // Build a geocodable lodging location: the resort's town + its country, e.g.
+    // "Niseko United" -> "Niseko, Japan". The bare marketing name doesn't
+    // geocode on Booking/Airbnb — "Niseko United" was landing users in Wales
+    // (matching "United" to the UK). Strip generic ski-area suffixes off the
+    // name and append the real country from the verified resort DB.
+    const topName = plan.topResorts?.[0]?.name || ''
+    const town = topName
+      .replace(/\b(United|Mountain Resort|Ski Resort|Ski Area|Resort)\b/gi, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+    const country = RESORTS.find(r => r.name === topName)?.country || ''
+    const stayNear = [town, country].filter(Boolean).join(', ') ||
       (Array.isArray(preferredRegion) ? preferredRegion[0] : preferredRegion)
     if (Array.isArray(plan.lodgingSuggestions) && stayNear) {
       const loc = encodeURIComponent(stayNear)
@@ -262,14 +274,12 @@ Return ONLY valid JSON in this exact structure, no extra text:
       const wantsAirbnb = /airbnb|house|chalet|condo|apartment|rental home|vacation home/i.test(extras || '')
       for (const l of plan.lodgingSuggestions) {
         if (wantsAirbnb || /airbnb/i.test(l.type || '')) {
-          // Tailor to the group: enough bedrooms (~2 per room), an entire place
-          // rather than a private room, and a per-night cap from the lodging budget.
+          // Tailor to the group: enough bedrooms (~2 per room) and an entire
+          // place rather than a private room. No price cap — deriving one from
+          // the model's (often lowballed) lodging budget produced absurd
+          // ceilings like $90/night that filtered out every real listing.
           const beds = Math.max(1, Math.ceil(groupCount / 2))
-          const lodgingBudget = Number(plan.budgetBreakdown?.lodging)
-          const priceMax = Number.isFinite(lodgingBudget) && lodgingBudget > 0 && nights > 0
-            ? `&price_max=${Math.round(lodgingBudget / nights)}`
-            : ''
-          l.searchUrl = `https://www.airbnb.com/s/${loc}/homes?checkin=${startDate}&checkout=${endDate}&adults=${groupCount}&min_bedrooms=${beds}&room_types%5B%5D=Entire%20home%2Fapt${priceMax}`
+          l.searchUrl = `https://www.airbnb.com/s/${loc}/homes?checkin=${startDate}&checkout=${endDate}&adults=${groupCount}&min_bedrooms=${beds}&room_types%5B%5D=Entire%20home%2Fapt`
           if (!/airbnb/i.test(l.type || '')) l.type = 'Airbnb'
         } else {
           l.searchUrl = `https://www.booking.com/searchresults.html?ss=${loc}&checkin=${startDate}&checkout=${endDate}&group_adults=${groupCount}`
