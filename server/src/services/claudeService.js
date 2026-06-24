@@ -71,6 +71,8 @@ CRITICAL FORMATTING RULES:
 - essentials: 5-7 practical "know before you go" items SPECIFIC to the destination country — passport/visa rules for a US traveler, money & ATMs, SIM/eSIM/wifi, power plug type, key local etiquette (e.g. onsen rules in Japan). One short line each.
 - foodAndDrink: 4-5 of the genuinely best and most iconic eating/drinking spots near the recommended resorts — legendary bars, must-do izakaya, standout après-ski. Each is an object with "name" (the REAL venue name, include the town), "vibe" (e.g. "lively après bar", "hidden cocktail spot"), and "why" (one enticing line). Favor real, well-known places.
 - snowReport: for EACH recommended resort, give its typical AVERAGE ANNUAL snowfall as a number in centimeters (avgAnnualSnowfallCm), a readable label (avgAnnualSnowfallLabel, e.g. "14 m / 550 in"), and a one-line "note" about the snow during the trip's month — accurate but enticing, based on the resort's real reputation.
+- lodgingSuggestions: one entry per place the group actually SLEEPS, in itinerary order. If they stay in one area the whole trip, that's a single entry covering all nights; if the itinerary relocates between bases (e.g. Niseko then Furano), output ONE entry PER base. A day-trip that returns to the same base that night is NOT a separate entry. Each entry has "area" (a bookable town + region, e.g. "Niseko, Hokkaido"), "nights" (integer per-base nights, summing to the trip's total nights), "type" ("hotel" or "airbnb"), and a one-line "description". Do NOT include a searchUrl — the server builds the dated booking links.
+- If the user's extras say they already have their own gear or don't want rentals, do NOT include any ski-gear-rental steps in the itinerary or gear-rental costs in the budget.
 
 USER INPUTS:
 - Budget: $${totalBudget} total ($${perPersonBudget} per person) for ${groupSize} people
@@ -113,9 +115,10 @@ Return ONLY valid JSON in this exact structure, no extra text:
   ],
   "lodgingSuggestions": [
     {
-      "type": "hotel or airbnb",
-      "description": "Ski-in/ski-out lodge",
-      "searchUrl": "https://www.airbnb.com/s/..."
+      "area": "Niseko, Hokkaido",
+      "nights": 8,
+      "type": "airbnb",
+      "description": "Group chalet in Hirafu village, walk to the gondola"
     }
   ],
   "rentalCarUrl": "https://www.kayak.com/cars/...",
@@ -267,36 +270,48 @@ Return ONLY valid JSON in this exact structure, no extra text:
       }
     }
 
-    // Build a geocodable lodging location: the resort's town + its country, e.g.
-    // "Niseko United" -> "Niseko, Japan". The bare marketing name doesn't
-    // geocode on Booking/Airbnb — "Niseko United" was landing users in Wales
-    // (matching "United" to the UK). Strip generic ski-area suffixes off the
-    // name and append the real country from the verified resort DB.
-    const topName = plan.topResorts?.[0]?.name || ''
-    const town = topName
-      .replace(/\b(United|Mountain Resort|Ski Resort|Ski Area|Resort)\b/gi, '')
-      .replace(/\s+/g, ' ')
-      .trim()
-    const country = RESORTS.find(r => r.name === topName)?.country || ''
-    const stayNear = [town, country].filter(Boolean).join(', ') ||
-      (Array.isArray(preferredRegion) ? preferredRegion[0] : preferredRegion)
-    if (Array.isArray(plan.lodgingSuggestions) && stayNear) {
-      const loc = encodeURIComponent(stayNear)
-      // Honour an explicit Airbnb-style preference from the extras.
+    // Lodging is one entry PER BASE the group sleeps at (e.g. Niseko for the
+    // first stretch, Furano for the last), in itinerary order. Walk check-in/out
+    // dates from the trip start across each leg's nights, and build a dated
+    // booking link per leg from a geocodable "<area>, <country>" — so a
+    // multi-stop itinerary surfaces multiple stays, each on the right dates.
+    const lodgingCountry = RESORTS.find(r => r.name === plan.topResorts?.[0]?.name)?.country || ''
+    const regionFallback = Array.isArray(preferredRegion) ? preferredRegion[0] : preferredRegion
+    if (Array.isArray(plan.lodgingSuggestions) && plan.lodgingSuggestions.length) {
       const wantsAirbnb = /airbnb|house|chalet|condo|apartment|rental home|vacation home/i.test(extras || '')
-      for (const l of plan.lodgingSuggestions) {
-        if (wantsAirbnb || /airbnb/i.test(l.type || '')) {
-          // Tailor to the group: enough bedrooms (~2 per room) and an entire
-          // place rather than a private room. No price cap — deriving one from
-          // the model's (often lowballed) lodging budget produced absurd
-          // ceilings like $90/night that filtered out every real listing.
-          const beds = Math.max(1, Math.ceil(groupCount / 2))
-          l.searchUrl = `https://www.airbnb.com/s/${loc}/homes?checkin=${startDate}&checkout=${endDate}&adults=${groupCount}&min_bedrooms=${beds}&room_types%5B%5D=Entire%20home%2Fapt`
-          if (!/airbnb/i.test(l.type || '')) l.type = 'Airbnb'
-        } else {
-          l.searchUrl = `https://www.booking.com/searchresults.html?ss=${loc}&checkin=${startDate}&checkout=${endDate}&group_adults=${groupCount}`
+      const beds = Math.max(1, Math.ceil(groupCount / 2))
+      const msDay = 24 * 60 * 60 * 1000
+      const tripStart = new Date(`${startDate}T00:00:00Z`)
+      const legs = plan.lodgingSuggestions
+      let cursor = tripStart
+      legs.forEach((l, i) => {
+        // Use the model's per-leg nights; if missing, give the last leg the
+        // remaining nights and split the rest evenly so dates still walk.
+        let legNights = Math.round(Number(l.nights)) || 0
+        if (legNights <= 0) {
+          const elapsed = Math.round((cursor - tripStart) / msDay)
+          legNights = i === legs.length - 1
+            ? Math.max(1, nights - elapsed)
+            : Math.max(1, Math.round(nights / legs.length))
         }
-      }
+        const checkIn = cursor.toISOString().slice(0, 10)
+        const out = new Date(cursor.getTime() + legNights * msDay)
+        const checkOut = out.toISOString().slice(0, 10)
+        l.nights = legNights
+        l.checkIn = checkIn
+        l.checkOut = checkOut
+        const place = [l.area, lodgingCountry].filter(Boolean).join(', ') || regionFallback || l.area || ''
+        if (place) {
+          const loc = encodeURIComponent(place)
+          if (wantsAirbnb || /airbnb/i.test(l.type || '')) {
+            l.searchUrl = `https://www.airbnb.com/s/${loc}/homes?checkin=${checkIn}&checkout=${checkOut}&adults=${groupCount}&min_bedrooms=${beds}&room_types%5B%5D=Entire%20home%2Fapt`
+            if (!/airbnb/i.test(l.type || '')) l.type = 'Airbnb'
+          } else {
+            l.searchUrl = `https://www.booking.com/searchresults.html?ss=${loc}&checkin=${checkIn}&checkout=${checkOut}&group_adults=${groupCount}`
+          }
+        }
+        cursor = out
+      })
     }
   }
 

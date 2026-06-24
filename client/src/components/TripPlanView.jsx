@@ -6,6 +6,7 @@ import Itinerary from './Itinerary'
 import PassAdvice from './PassAdvice'
 import SnowReport from './SnowReport'
 import Comments from './Comments'
+import { safeUrl } from '../lib/safeUrl'
 import { buildItineraryICS, downloadICS } from '../lib/calendar'
 
 function SectionCard({ children, delay = 0, className = '' }) {
@@ -174,16 +175,49 @@ export default function TripPlanView({ plan, shareId }) {
         </div>
       </div>
 
-      {/* Lodging */}
-      <SectionCard delay={0.25}>
-        <LinksList
-          title="Lodging Options"
-          items={plan.lodgingSuggestions}
-          urlKey="searchUrl"
-          labelKey="type"
-          descKey="description"
-        />
-      </SectionCard>
+      {/* Where to stay — one card per base, so multi-stop trips are obvious */}
+      {plan.lodgingSuggestions?.length > 0 && (
+        <SectionCard delay={0.25}>
+          <SectionHeading>
+            Where to Stay{plan.lodgingSuggestions.length > 1 ? ` · ${plan.lodgingSuggestions.length} stays` : ''}
+          </SectionHeading>
+          <div className="space-y-3">
+            {plan.lodgingSuggestions.map((l, i) => {
+              const href = safeUrl(l.searchUrl)
+              const dates = l.checkIn && l.checkOut ? `${l.checkIn} → ${l.checkOut}` : null
+              const inner = (
+                <>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-medium text-white text-sm">
+                      {l.area || l.type || 'Lodging'}
+                      {l.nights ? <span className="text-slate-400 font-normal"> · {l.nights} night{l.nights === 1 ? '' : 's'}</span> : null}
+                    </span>
+                    {href && <span className="text-blue-400 text-sm opacity-0 group-hover:opacity-100 transition shrink-0">Search →</span>}
+                  </div>
+                  {(dates || l.type) && (
+                    <div className="text-xs text-blue-300/80 mt-0.5">
+                      {dates}{dates && l.type ? ' · ' : ''}{l.type}
+                    </div>
+                  )}
+                  {l.description && <p className="text-xs text-slate-400 mt-1.5">{l.description}</p>}
+                </>
+              )
+              return href ? (
+                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="block bg-slate-900/50 hover:bg-slate-700/50 border border-slate-700/50 rounded-lg p-3.5 transition group">
+                  {inner}
+                </a>
+              ) : (
+                <div key={i} className="block bg-slate-900/50 border border-slate-700/50 rounded-lg p-3.5">
+                  {inner}
+                </div>
+              )
+            })}
+          </div>
+          {plan.lodgingSuggestions.length > 1 && (
+            <p className="text-xs text-slate-500 mt-3">Your itinerary moves between areas — book each stay separately for its dates.</p>
+          )}
+        </SectionCard>
+      )}
 
       {/* Know before you go */}
       {plan.essentials?.length > 0 && (
