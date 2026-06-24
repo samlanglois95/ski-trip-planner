@@ -9,8 +9,10 @@ const WAKEUP_MESSAGE = "Waking up the server — the first request after it's be
 const STAGES = [
   'Scanning 150+ resorts for your perfect match…',
   'Mapping out your day-by-day itinerary…',
+  'Checking snowfall & Ikon/Epic pass coverage…',
   'Pricing flights, lodging & lift tickets…',
   'Finding the best food, bars & après spots…',
+  'Writing your getting-there & know-before-you-go tips…',
   'Almost there — putting it all together…',
 ]
 
@@ -31,7 +33,7 @@ export default function Home() {
   // wait feels intentional. The cold-start message (statusMsg) takes priority.
   useEffect(() => {
     if (!loading) return
-    const id = setInterval(() => setStage(s => Math.min(s + 1, STAGES.length - 1)), 5000)
+    const id = setInterval(() => setStage(s => Math.min(s + 1, STAGES.length - 1)), 14000)
     return () => clearInterval(id)
   }, [loading])
 
