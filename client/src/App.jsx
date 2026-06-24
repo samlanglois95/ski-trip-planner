@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import Home from './pages/Home'
@@ -15,9 +16,18 @@ function ProtectedRoute({ children }) {
   return children
 }
 
+// Reset scroll to the top on every route change — otherwise navigating from a
+// scrolled-down form to /results lands you mid-page.
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
+
 function AppRoutes() {
   return (
     <div className="min-h-screen bg-slate-900 text-white">
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
