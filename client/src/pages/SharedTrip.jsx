@@ -78,7 +78,7 @@ export default function SharedTrip() {
         </div>
       </div>
 
-      <TripPlanView plan={plan} />
+      <TripPlanView plan={plan} shareId={shareId} />
     </div>
   )
 }

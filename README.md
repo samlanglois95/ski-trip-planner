@@ -109,7 +109,29 @@ create policy "users_own_trips" on trips
   for all
   using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
+
+-- Create comments table (group comments on a shared trip)
+create table if not exists comments (
+  id uuid default gen_random_uuid() primary key,
+  trip_id uuid not null references trips(id) on delete cascade,
+  author text not null,
+  body text not null,
+  link text,
+  created_at timestamp with time zone default now()
+);
+
+-- Index for fast per-trip comment lookups
+create index if not exists idx_comments_trip_id on comments (trip_id, created_at);
+
+-- The server reads/writes comments with the service-role key (which bypasses
+-- RLS). Enable RLS with no policies so the table is server-only and never
+-- reachable with the public anon key.
+alter table comments enable row level security;
 ```
+
+> **Already running an older deploy?** Just run the `create table … comments …`,
+> `create index … idx_comments_trip_id …`, and `alter table comments enable row
+> level security;` statements above — they're idempotent and safe to re-run.
 
 ### 3. Configure environment variables
 

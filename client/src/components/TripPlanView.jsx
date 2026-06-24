@@ -5,6 +5,7 @@ import MapView from './MapView'
 import Itinerary from './Itinerary'
 import PassAdvice from './PassAdvice'
 import SnowReport from './SnowReport'
+import Comments from './Comments'
 import { buildItineraryICS, downloadICS } from '../lib/calendar'
 
 function SectionCard({ children, delay = 0, className = '' }) {
@@ -29,7 +30,7 @@ function SectionHeading({ children }) {
 
 // Presentational view of a trip plan, shared by the Results page (owner) and
 // the public SharedTrip page (anyone with the link).
-export default function TripPlanView({ plan }) {
+export default function TripPlanView({ plan, shareId }) {
   if (!plan) return null
 
   return (
@@ -209,6 +210,9 @@ export default function TripPlanView({ plan }) {
           <p className="text-sm text-slate-300 leading-relaxed">{plan.bestTimeToBook}</p>
         </SectionCard>
       )}
+
+      {/* Group comments (shows on the shared link; owner sees a hint until shared) */}
+      <Comments shareId={shareId} />
 
     </div>
   )

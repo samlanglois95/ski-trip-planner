@@ -6,7 +6,10 @@ import {
   deleteTrip,
   createShareLink,
   revokeShareLink,
-  getSharedTrip
+  getSharedTrip,
+  resolveShareId,
+  getComments,
+  addComment
 } from '../services/tripStorageService.js'
 
 export async function generateTripPlan(req, res) {
@@ -91,5 +94,34 @@ export async function viewSharedTrip(req, res) {
     res.json({ success: true, data: trip })
   } catch (error) {
     res.status(404).json({ success: false, error: 'Trip not found' })
+  }
+}
+
+// Public — list comments on a shared trip (looked up by its share token).
+export async function listComments(req, res) {
+  try {
+    const tripId = await resolveShareId(req.params.shareId)
+    const comments = await getComments(tripId)
+    res.json({ success: true, data: comments })
+  } catch (error) {
+    res.status(404).json({ success: false, error: 'Trip not found' })
+  }
+}
+
+// Public — add a comment to a shared trip. Validated + rate-limited upstream;
+// only attaches to a trip that has a live share link.
+export async function postComment(req, res) {
+  try {
+    const tripId = await resolveShareId(req.params.shareId)
+    const { author, body, link } = req.body
+    const comment = await addComment(tripId, { author, body, link })
+    res.status(201).json({ success: true, data: comment })
+  } catch (error) {
+    console.error('Post comment error:', error)
+    const notFound = error.message === 'Trip not found'
+    res.status(notFound ? 404 : 500).json({
+      success: false,
+      error: notFound ? 'Trip not found' : 'Could not post comment'
+    })
   }
 }
