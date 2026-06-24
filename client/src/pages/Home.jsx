@@ -41,24 +41,29 @@ export default function Home() {
     setStatusMsg(null)
     setStage(0)
 
-    // A cold start tends to be slow rather than failing outright — reassure the
-    // user (without aborting) if it's taking a while.
-    const slowTimer = setTimeout(() => setStatusMsg(WAKEUP_MESSAGE), 8000)
-    const maxAttempts = 5
+    // Generation legitimately takes a couple of minutes, so don't cap the wait —
+    // only retry on an early failure, which means a cold start (Render free tier
+    // boots in ~60-90s and fails fast while booting). A failure that arrives
+    // AFTER a long wait is a real generation error, not a cold start, so retrying
+    // would just burn another slow, expensive generation for the same result.
+    const maxAttempts = 2
 
     try {
       for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        const startedAt = Date.now()
         try {
           const res = await api.post('/api/trip/generate', formData)
           navigate('/results', { state: { plan: res.data.data, inputs: formData, autosave: true } })
           return
         } catch (err) {
-          // No response or a gateway error usually means the backend is still
-          // booting — show the wake-up message and retry a few times.
-          const stillWaking = !err.response || [502, 503, 504].includes(err.response.status)
-          if (stillWaking && attempt < maxAttempts) {
+          const gatewayError = !err.response || [502, 503, 504].includes(err.response.status)
+          const failedFast = Date.now() - startedAt < 30000
+          if (gatewayError && failedFast && attempt < maxAttempts) {
+            // Likely a cold start — surface the wake-up message, wait, retry once.
             setStatusMsg(WAKEUP_MESSAGE)
             await new Promise(r => setTimeout(r, 5000))
+            setStatusMsg(null)
+            setStage(0)
             continue
           }
           setError(err.response?.data?.error || 'Something went wrong generating your trip. Please try again.')
@@ -67,7 +72,6 @@ export default function Home() {
         }
       }
     } finally {
-      clearTimeout(slowTimer)
       setLoading(false)
       setStatusMsg(null)
     }

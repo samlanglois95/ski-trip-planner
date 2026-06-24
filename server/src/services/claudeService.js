@@ -58,16 +58,17 @@ CRITICAL FORMATTING RULES:
 - notes in budgetBreakdown must always be a plain string, never an object.
 - topResorts must contain EXACTLY 3 resort recommendations, no more, no less.
 - itinerary must have one entry per day of the trip, covering arrival through departure.
-- Each itinerary day must have a "day" number, "title", "description", and "activities" array of 3-5 specific actionable items.
+- Each itinerary day must have a "day" number, "title", a one-sentence "description", and an "activities" array of 3-4 specific actionable items.
 - itinerary activities should be specific to the recommended resorts and region, not generic.
 - Each itinerary day must also include a "type" field — one of "travel", "ski", "rest", "explore", "departure" — used for visual styling. Day 1 is usually "travel" and the final day "departure".
 - Return ONLY valid JSON, no extra text, no markdown fences.
+- BE CONCISE. Keep every description, note, reason, and "why" to ONE short sentence. Don't repeat information across fields or pad — terse, specific answers keep the response fast and complete (a bloated response is slow to generate and risks being cut off).
 - itinerary must have a MAXIMUM of 14 day entries regardless of trip length. For longer trips, group multiple days together (e.g. "Days 3-5: Powder Days at Snowbird").
 - PREFER resorts from the VERIFIED RESORT DATABASE below that match the user's region(s) and criteria. When you use one, copy its exact name, its lat/lng into mapboxCoords, its site into websiteUrl, its tickets URL into bookingUrl, and its airport as the nearestAirport. Only invent a resort if none in the list fit the request.
 - passRecommendation: if the user's pass type is "none" or "flexible" AND the recommended resorts are all (or mostly) covered by a single pass (Ikon or Epic), recommend that pass — set "pass" to "Ikon" or "Epic", give the approximate current season-pass cost in USD as "estimatedPassCost", and set "worthIt" true if the pass beats buying day lift tickets for this trip. If no single pass clearly helps, set "pass" to "none".
-- gettingThere: 3-6 concrete steps getting from the user's departure location to the resort area — flights, then airport transfers (buses/trains/shuttles) with approximate cost and travel time. Be specific to the destination.
-- essentials: 6-10 practical "know before you go" items SPECIFIC to the destination country — passport/visa rules for a US traveler, money & ATMs, SIM/eSIM/wifi, power plug type, key local etiquette (e.g. onsen rules in Japan), and any transport passes worth buying.
-- foodAndDrink: 4-8 of the genuinely best and most iconic eating/drinking spots near the recommended resorts — the legendary bars, must-do izakaya, standout après-ski. Each is an object with "name" (the REAL venue name, include the town), "vibe" (e.g. "lively après bar", "hidden cocktail spot", "late-night izakaya"), and "why" (one enticing line). Favor real, well-known places known for a great time.
+- gettingThere: 3-5 concise steps from the user's departure location to the resort area — flights, then airport transfers (buses/trains/shuttles) with approximate cost and travel time. One line each, specific to the destination.
+- essentials: 5-7 practical "know before you go" items SPECIFIC to the destination country — passport/visa rules for a US traveler, money & ATMs, SIM/eSIM/wifi, power plug type, key local etiquette (e.g. onsen rules in Japan). One short line each.
+- foodAndDrink: 4-5 of the genuinely best and most iconic eating/drinking spots near the recommended resorts — legendary bars, must-do izakaya, standout après-ski. Each is an object with "name" (the REAL venue name, include the town), "vibe" (e.g. "lively après bar", "hidden cocktail spot"), and "why" (one enticing line). Favor real, well-known places.
 - snowReport: for EACH recommended resort, give its typical AVERAGE ANNUAL snowfall as a number in centimeters (avgAnnualSnowfallCm), a readable label (avgAnnualSnowfallLabel, e.g. "14 m / 550 in"), and a one-line "note" about the snow during the trip's month — accurate but enticing, based on the resort's real reputation.
 
 USER INPUTS:
@@ -185,7 +186,7 @@ Return ONLY valid JSON in this exact structure, no extra text:
         messages: [{ role: 'user', content: prompt }]
       },
       {
-        timeout: 150000,
+        timeout: 240000,
         headers: {
           'x-api-key': process.env.ANTHROPIC_API_KEY,
           'anthropic-version': '2023-06-01',
